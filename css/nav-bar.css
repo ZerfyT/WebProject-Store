@@ -1,0 +1,97 @@
+/* Navigation Bar */
+.nav-bar {
+	display: flex;
+	flex-direction: row;
+    align-items: center;
+	padding: 8px;
+    color: white;
+    
+}
+.nav-bar a {
+	display: inline-block;
+	padding: 8px 12px;
+	text-decoration: none;
+    color: inherit;
+    transition: 0.5s;
+    height: max-content;
+}
+.nav-bar a:hover{
+    color: rgb(219, 219, 219);
+    letter-spacing: 0.02rem;
+    /* font-size: 1.1rem; */
+}
+
+/* Navigation 1 */
+.nav-1 {
+	justify-content: space-between;
+    background-color: #C3003C;
+}
+.nav-2 input,
+.nav-2 button {
+	margin: 0 2px;
+	padding: 6px 12px;
+    color: inherit;
+}
+
+/* Navigation 2 */
+.nav-2 {
+	justify-content: center;
+    background-color: #D90043;
+}
+.nav-2 input {
+	width: 40vw;
+}
+
+/* .nav-links > li, .nav-links a, header button {
+    font-size: 17px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.logo {
+    cursor: pointer;
+    order: 1;
+}
+
+.nav-bar {
+    order: 2;
+}
+
+.cta {
+    order: 3;
+    margin-left: auto;
+}
+
+.nav-links {
+    list-style: none;
+}
+
+.nav-links li {
+    display: inline-block;
+    padding: 0px 20px;
+} */
+/*
+.nav-links li:nth-child(0) {
+    padding: 0 20px 0 0; 
+}
+*/
+/* .nav-links li a {
+    transition: all 0.3s ease 0s;
+}
+    
+.nav-links li a:hover {
+    color: #0088a9;
+}
+
+header button {
+    padding: 9px 25px;
+    background-color: rgba(0, 136, 169, 1);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+header button:hover {
+    background-color: rgba(0, 136, 169, 0.6);
+} */

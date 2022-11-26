@@ -1,0 +1,27 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    /* align-content: center; */
+    justify-content: center;
+    /* align-items: center; */
+    /* width: 40%; */
+    margin: auto auto;
+    height: 70vh;
+    min-width: 200px;
+    max-width: 360px;
+}
+.container *{
+    display: block;
+    width: 100%;
+    /* margin: 8px; */
+    padding: 8px 12px;
+}
+.link a{
+    display: inline-block;
+    width: min-content;
+    
+}
+.text-center{
+    text-align: center;
+}
