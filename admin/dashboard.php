@@ -20,7 +20,7 @@ if (empty($_SESSION['admin-name']) && empty($_SESSION['admin-is-logged'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Bootstrap CSS v5.2.1 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <link href="../bootstrap-5.2.3-dist/css/bootstrap.min.css" rel="stylesheet">
 
   <script src="js/dashboard-controller.js" defer></script>
 
@@ -248,7 +248,8 @@ if (empty($_SESSION['admin-name']) && empty($_SESSION['admin-is-logged'])) {
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
   </script>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  <script src="../bootstrap-5.2.3-dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+    // <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
   </script>
 </body>
 
@@ -284,41 +285,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // FILE UPLOADING
     $uploads_dir = "uploads";
-    $file_paths = array();
-    // $target_file = $target_dir . basename($_FILES["item-pics"]["name"]);
-    // $uploadOk = 1;
-    // $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-    // echo "$target_file <br>";
-    // echo "$imageFileType <br>";
+    $file_paths = uploadFile($uploads_dir);
+    $item_pics = arrayToString($file_paths);
 
-    $i = 0;
-    foreach ($_FILES["item-pics"]["error"] as $key => $error) {
-      global $i;
-      global $file_paths;
-      if ($error == UPLOAD_ERR_OK) {
-        $tmp_name = $_FILES["item-pics"]["tmp_name"][$key];
-        // basename() may prevent filesystem traversal attacks;
-        // further validation/sanitation of the filename may be appropriate
-        $name = basename($_FILES["item-pics"]["name"][$key]);
-        move_uploaded_file($tmp_name, "../$uploads_dir/$name");
-
-        echo "$error <br>";
-        echo "$tmp_name <br>";
-        echo "$name <br>";
-        echo "Path = $uploads_dir/$name";
-        $file_paths[$i] = "$uploads_dir/$name";
-        $i++;
-      }
-    }
-
-    $item_pics = "";
-    for ($j = 0; $j < sizeof($file_paths); $j++) {
-      $tmp = $file_paths[$i];
-      if ($j < $file_paths[$i] - 1) {
-        $tmp = $tmp . ",";
-      }
-      $item_pics = $item_pics . $tmp;
-    }
 
     // $check = getimagesize($_FILES['item-pics']['tmp_name']);
     // if ($check !== false) {
@@ -365,5 +334,50 @@ function checkEmpty($option)
       }
     }
   }
+}
+// @* @param string uploads_dir Directory to save uploaded image files
+function uploadFile($uploads_dir)
+{
+  // FILE UPLOADING
+
+  // $target_file = $target_dir . basename($_FILES["item-pics"]["name"]);
+  // $uploadOk = 1;
+  // $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+  // echo "$target_file <br>";
+  // echo "$imageFileType <br>";
+
+  $i = 0;
+  $file_paths = array();
+  foreach ($_FILES["item-pics"]["error"] as $key => $error) {
+    // global $i;
+    // global $file_paths;
+    if ($error == UPLOAD_ERR_OK) {
+      $tmp_name = $_FILES["item-pics"]["tmp_name"][$key];
+      $tmp = explode(".", $_FILES["item-pics"]["name"][$key]);
+      $newFileName = round(microtime(true)) . '.' . end($tmp);
+      // $name = basename($_FILES["item-pics"]["name"][$key]);
+      move_uploaded_file($tmp_name, "../$uploads_dir/$newFileName");
+      // move_uploaded_file($tmp_name, "../$uploads_dir/$name");
+
+      echo "Error $key : $error <br>";
+      echo "$tmp <br>";
+      echo "New File Name : $newFileName <br>";
+      $file_paths[$i] = $newFileName;
+      $i++;
+    }
+  }
+  return $file_paths;
+}
+function arrayToString($array)
+{
+  $item_pics = "";
+  for ($j = 0; $j < sizeof($array); $j++) {
+    $tmp = $array[$j];
+    if ($j < sizeof($array) - 1) {
+      $tmp = $tmp . ",";
+    }
+    $item_pics = $item_pics . $tmp;
+  }
+  return $item_pics;
 }
 ?>
