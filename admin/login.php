@@ -91,6 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Redirect to Dashboard Page
     header('Location: dashboard.php');
+    exit;
   }
 }
 ?>

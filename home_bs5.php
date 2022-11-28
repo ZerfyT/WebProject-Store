@@ -116,6 +116,7 @@
 
   <!-- Footer -->
   <?php
+  $IPATH = $_SERVER['DOCUMENT_ROOT'] . "/PHPPrac/Web/";
   include($IPATH . "html/footer.html");
   ?>
 
