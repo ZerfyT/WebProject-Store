@@ -22,24 +22,40 @@ if (empty($_SESSION['admin-name']) && empty($_SESSION['admin-is-logged'])) {
   <!-- Bootstrap CSS v5.2.1 -->
   <link href="../bootstrap-5.2.3-dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <script src="js/dashboard-controller.js" defer></script>
+  <script src="js/dashboard-controller.js"></script>
 
   <style>
+    #controller-cards button {
+      transition: 0.2s;
+    }
+
+    #controller-cards button:hover {
+      opacity: 0.8;
+      letter-spacing: 0.1em;
+    }
+
+    #controller-cards button.active #controller-cards .card {
+      border-color: tomato;
+    }
+
+    #controller-cards .card {
+      transition: 0.3s;
+    }
+
+    #controller-cards .card:hover {
+      background-color: var(--bs-gray-200);
+      border-color: var(--bs-gray-600);
+      box-shadow: 1px 1px 8px rgba(63, 63, 63, 0.678);
+    }
+
     #form-container {
       border: 1px solid var(--bs-gray-200);
       box-shadow: 0px 0px 4px rgba(63, 63, 63, 0.678);
       visibility: hidden;
     }
 
-    #form-container>form {
+    #form-container>.form {
       display: none;
-    }
-
-    .card:hover {
-      background-color: var(--bs-gray-200);
-      border-color: var(--bs-gray-600);
-      box-shadow: 1px 1px 8px rgba(63, 63, 63, 0.678);
-      transition: 0.3s;
     }
   </style>
 </head>
@@ -58,14 +74,14 @@ if (empty($_SESSION['admin-name']) && empty($_SESSION['admin-is-logged'])) {
       ?>
 
       <!-- Controllers -->
-      <div class="row m-4">
+      <div id="controller-cards" class="row m-4">
 
         <div class="col-sm-4">
           <div class="card">
             <div class="card-body text-center">
               <h5 class="card-title">Insert New Data</h5>
               <!-- <p class="card-text">New Items, ...</p> -->
-              <button id="bt-insert" class="btn btn-success px-3">INSERT</button>
+              <button id="bt-insert" class="btn btn-success px-3" onclick="controlFormVisibility(event, 'form-insert');">INSERT</button>
             </div>
           </div>
         </div>
@@ -73,9 +89,9 @@ if (empty($_SESSION['admin-name']) && empty($_SESSION['admin-is-logged'])) {
         <div class="col-sm-4">
           <div class="card">
             <div class="card-body text-center">
-              <h5 class="card-title">View All Data</h5>
+              <h5 class="card-title">View All Items</h5>
               <!-- <p class="card-text">New Items, ...</p> -->
-              <button id="bt-select" class="btn btn-info px-3">SELECT</button>
+              <button id="bt-select-items" class="btn btn-info px-3" onclick="controlFormVisibility(event, 'form-select-items');">SELECT</button>
             </div>
           </div>
         </div>
@@ -86,7 +102,7 @@ if (empty($_SESSION['admin-name']) && empty($_SESSION['admin-is-logged'])) {
             <div class="card-body text-center">
               <h5 class="card-title">Delete An Item</h5>
               <!-- <p class="card-text">New Items, ...</p> -->
-              <button id="bt-delete" class="btn btn-danger px-3">DELETE</button>
+              <button id="bt-delete" class="btn btn-danger px-3" onclick="controlFormVisibility(event, 'form-delete');">DELETE</button>
             </div>
           </div>
         </div>
@@ -94,37 +110,6 @@ if (empty($_SESSION['admin-name']) && empty($_SESSION['admin-is-logged'])) {
       </div>
 
       <div class="row m-4">
-
-        <div class="col-sm-4">
-          <div class="card">
-            <div class="card-body text-center">
-              <h5 class="card-title">View All Data</h5>
-              <!-- <p class="card-text">New Items, ...</p> -->
-              <a href="#" class="btn btn-info px-3">SELECT</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-sm-4">
-          <div class="card">
-            <div class="card-body text-center">
-              <h5 class="card-title">View All Data</h5>
-              <!-- <p class="card-text">New Items, ...</p> -->
-              <a href="#" class="btn btn-info px-3">SELECT</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-sm-4">
-          <div class="card">
-            <div class="card-body text-center">
-              <h5 class="card-title">View All Data</h5>
-              <!-- <p class="card-text">New Items, ...</p> -->
-              <a href="#" class="btn btn-info px-3">SELECT</a>
-            </div>
-          </div>
-        </div>
-
       </div>
 
 
@@ -132,7 +117,7 @@ if (empty($_SESSION['admin-name']) && empty($_SESSION['admin-is-logged'])) {
       <div id="form-container" class="container p-4 m-5 m-auto">
 
         <!-- Form Insert -->
-        <form id="form-insert" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
+        <form class="form" id="form-insert" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
 
           <!-- Title -->
           <div class="row mb-3">
@@ -186,59 +171,23 @@ if (empty($_SESSION['admin-name']) && empty($_SESSION['admin-is-logged'])) {
           <button type="submit" class="btn btn-primary d-block m-auto" name="bt-insert">Add Item</button>
         </form>
 
-        <!-- Form Insert -->
-        <form id="form-select">
+        <!-- Form Select Items -->
+        <form class="form" id="form-select-items" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 
-          <!-- Title -->
+          <!-- Title Search -->
           <div class="row mb-3">
-            <label for="item-title" class="col-sm-2 col-form-label">Title</label>
+            <label for="select-title" class="col-sm-2 col-form-label">Title</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="item-title">
+              <input type="text" class="form-control" id="select-title" name="select-title">
             </div>
           </div>
 
-          <!-- Description -->
-          <div class="row mb-3">
-            <label for="item-desc" class="col-sm-2 col-form-label">Description</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="item-desc">
-            </div>
-          </div>
-
-          <!-- Unit Price -->
-          <div class="row mb-3">
-            <label for="item-unit-price" class="col-sm-2 col-form-label">Unit Price</label>
-            <div class="col-sm-10">
-              <input type="number" class="form-control" id="item-unit-price">
-            </div>
-          </div>
-
-          <!-- Unit -->
-          <div class="row mb-3">
-            <label for="item-unit" class="col-sm-2 col-form-label">Unit</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="item-unit">
-            </div>
-          </div>
-
-          <!-- Unit Price -->
-          <div class="row mb-3">
-            <label for="item-desc" class="col-sm-2 col-form-label">Password</label>
-            <div class="col-sm-10">
-              <input type="password" class="form-control" id="item-desc">
-            </div>
-          </div>
-
-          <!-- Available Stock -->
-          <div class="row mb-3">
-            <label for="item-stock" class="col-sm-2 col-form-label">Available Stock</label>
-            <div class="col-sm-10">
-              <input type="number" class="form-control" id="item-stock">
-            </div>
-          </div>
-
-          <button type="submit" class="btn btn-primary d-block m-auto">Add Item</button>
+          <button type="submit" class="btn btn-primary d-block m-auto" name="bt-select-items">Search Items</button>
         </form>
+      </div>
+
+      <div class="card-container">
+
       </div>
 
     </div>
@@ -263,17 +212,15 @@ if (empty($_SESSION['admin-name']) && empty($_SESSION['admin-is-logged'])) {
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-
   require '../php/connection.php';
-
 
   define('OPTION_INSERT', 1);
   $fields_insert = array('item-title', 'item-desc', 'item-unit-price', 'item-unit', 'item-stock');
+  $fields_search_key = "select-title";
 
-
+  // Insert New Item -------------------------------------------------------------------------------------
   if (isset($_POST['bt-insert'])) {
-
-    if (checkEmpty(1)) {
+    if (checkEmpty(1, $fields_insert)) {
       die("ERROR: Please fill all fields.");
     }
     $item_title = $_POST[$fields_insert[0]];
@@ -281,35 +228,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $item_unit_price = $_POST[$fields_insert[2]];
     $item_unit = $_POST[$fields_insert[3]];
     $item_stock = $_POST[$fields_insert[4]];
-    // $item_pics = $_POST[$fields_insert[5]];
 
     // FILE UPLOADING
     $uploads_dir = "uploads";
     $file_paths = uploadFile($uploads_dir);
     $item_pics = arrayToString($file_paths);
-
-
-    // $check = getimagesize($_FILES['item-pics']['tmp_name']);
-    // if ($check !== false) {
-    //   echo "File is an image - " . $check["mime"] . ".";
-    //   $uploadOk = 1;
-    // } else {
-    //   echo "File is not an image.";
-    //   $uploadOk = 0;
-    // }
-
-    // Check if $uploadOk is set to 0 by an error
-    // if ($uploadOk == 0) {
-    //   echo "Sorry, your file was not uploaded.";
-    //   // if everything is ok, try to upload file
-    // } else {
-    //   if (move_uploaded_file($_FILES["item-pics"]["tmp_name"], $target_file)) {
-    //     echo "The file " . htmlspecialchars(basename($_FILES["item-pics"]["name"])) . " has been uploaded.";
-    //   } else {
-    //     echo "Sorry, there was an error uploading your file.";
-    //   }
-    // }
-
 
     // Insert New Data
     $sql = "INSERT INTO `item` (`title`, `description`, `unit_price`, `unit`, `avail_stock`, `pictures`) 
@@ -321,43 +244,67 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       echo "Error: " . $sql . "<br>" . $conn->error;
     }
   }
-}
+  // Search Item -------------------------------------------------------------------------------------
+  elseif (isset($_POST['bt-select-items'])) {
+    $sql = "SELECT * FROM `item`";
+    if (!checkEmpty(2, $fields_search_key)) {
+      $search_key = $_POST[$fields_search_key];
+      $sql = "SELECT * FROM `item` WHERE `title` LIKE '%$search_key%'";
+    }
+    $result = $conn->query($sql);
 
-function checkEmpty($option)
-{
-  global $fields_insert;
+    if ($result->num_rows > 0) {
+      // output data of each row
+      while ($row = $result->fetch_assoc()) {
+        echo "title: " . $row["title"] . "<br>";
+        echo "Description: " . $row["description"] . "<br>";
+        echo "Unit Price: " . $row["unit_price"] . "<br>";
+        echo "Unit: " . $row["unit"] . "<br>";
+        echo "Available Stock: " . $row["avail_stock"] . "<br>";
+        echo "Pictures: " . $row["pictures"] . "<br>";
 
-  if ($option == 1) {
-    for ($i = 0; $i < sizeof($fields_insert); $i++) {
-      if (empty($_POST[$fields_insert[$i]])) {
-        return true;
+        
       }
+    } else {
+      echo "0 results";
     }
   }
 }
-// @* @param string uploads_dir Directory to save uploaded image files
+
+/**
+ * Check the input fields is not empty.
+ * @param int $option Option = 1, Data insert mode. Option = 2, Data select mode.
+ * @return boolean Return true when at least one field is empty.Otherwise false.
+ */
+function checkEmpty($option, $data)
+{
+  if ($option == 1) {
+    for ($i = 0; $i < sizeof($data); $i++) {
+      if (empty($_POST[$data[$i]])) {
+        return true;
+      }
+    }
+  } elseif ($option == 2) {
+    if (empty($_POST[$data])) {
+      return true;
+    }
+  }
+}
+/**
+ * Upload image files to web server. Multiple file uploading supported.
+ * @param string $uploads_dir Directory to save uploaded image files
+ * @return array $file_paths Return an array of uploaded file names.
+ */
 function uploadFile($uploads_dir)
 {
-  // FILE UPLOADING
-
-  // $target_file = $target_dir . basename($_FILES["item-pics"]["name"]);
-  // $uploadOk = 1;
-  // $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-  // echo "$target_file <br>";
-  // echo "$imageFileType <br>";
-
   $i = 0;
   $file_paths = array();
   foreach ($_FILES["item-pics"]["error"] as $key => $error) {
-    // global $i;
-    // global $file_paths;
     if ($error == UPLOAD_ERR_OK) {
       $tmp_name = $_FILES["item-pics"]["tmp_name"][$key];
       $tmp = explode(".", $_FILES["item-pics"]["name"][$key]);
       $newFileName = round(microtime(true)) . '.' . end($tmp);
-      // $name = basename($_FILES["item-pics"]["name"][$key]);
       move_uploaded_file($tmp_name, "../$uploads_dir/$newFileName");
-      // move_uploaded_file($tmp_name, "../$uploads_dir/$name");
 
       echo "Error $key : $error <br>";
       echo "$tmp <br>";
@@ -368,6 +315,11 @@ function uploadFile($uploads_dir)
   }
   return $file_paths;
 }
+/**
+ * Convert an array to string seperated by comma.
+ * @param array $array Array to convert.
+ * @return string $item_pics Converted string.
+ */
 function arrayToString($array)
 {
   $item_pics = "";
