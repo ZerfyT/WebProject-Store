@@ -1,0 +1,15 @@
+.row {
+    border: 1px solid #ccc;
+    padding: 8px;
+    display: grid;
+    grid-template-columns: max-content 75%;
+}
+
+.label {
+    grid-column: 1 / 2;
+    margin-right: 8px;
+}
+
+.result {
+    grid-column: 2 / 3;
+}
