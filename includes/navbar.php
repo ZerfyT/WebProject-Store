@@ -31,7 +31,7 @@
                     </li>
                 </ul>
 
-                <form class="d-flex" action="php/searchResult.php" method="get">
+                <form class="d-flex" action="search.php" method="get">
                     <input class="form-control me-sm-2" type="text" placeholder="Search" name="input-search">
                     <button class="btn btn-secondary my-2 my-sm-0" type="submit" name="bt-search">Search</button>
                 </form>
@@ -42,7 +42,7 @@
                         <!-- <a class="nav-link active" href="#" aria-current="page">Contact Us <span class="visually-hidden">(current)</span></a> -->
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="php/SignIn.php">Sign In</a>
+                        <a class="nav-link" href="signin.php">Sign In</a>
                     </li>
                 </ul>
             </div>

@@ -1,15 +1,12 @@
-.row {
-    border: 1px solid #ccc;
-    padding: 8px;
-    display: grid;
-    grid-template-columns: max-content 75%;
+.result.card img {
+    width: 25vw;
+    height: 15vh;
+    object-fit: fill;
+    
 }
-
-.label {
-    grid-column: 1 / 2;
-    margin-right: 8px;
+.result.card{
+    flex: 0 0 10%;
 }
-
-.result {
-    grid-column: 2 / 3;
+.col{
+    flex-basis: 0;
 }

@@ -15,5 +15,6 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="dist/css/index.css">
+    <link rel="stylesheet" href="dist/css/search.css">
 
 </head>

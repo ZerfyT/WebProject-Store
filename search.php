@@ -2,75 +2,51 @@
 <?php include 'includes/header.php'; ?>
 
 <body class="hold-transition skin-blue layout-top-nav">
-    <div class="wrapper">
 
-        <?php include 'includes/navbar.php'; ?>
+    <?php include 'includes/navbar.php'; ?>
 
-        <div class="content-wrapper">
-            <div class="container">
+        <div class="container m-4">
 
-                <!-- Main content -->
-                <section class="content">
-                    <div class="row">
-                        <div class="col-sm-9">
-                            <?php
+            <!-- Main content -->
+            <?php
 
-                            $conn = $pdo->open();
+            $conn = $pdo->open();
 
-                            $stmt = $conn->prepare("SELECT COUNT(*) AS numrows FROM item WHERE title LIKE :keyword");
-                            $stmt->execute(['keyword' => '%' . $_POST['input-search'] . '%']);
-                            $row = $stmt->fetch();
-                            if ($row['numrows'] < 1) {
-                                echo '<h1 class="page-header">No results found for <i>' . $_POST['input-search'] . '</i></h1>';
-                            } else {
-                                echo '<h1 class="page-header">Search results for <i>' . $_POST['input-search'] . '</i></h1>';
-                                try {
-                                    $inc = 3;
-                                    $stmt = $conn->prepare("SELECT * FROM products WHERE name LIKE :keyword");
-                                    $stmt->execute(['keyword' => '%' . $_POST['input-search'] . '%']);
+            if (isset($_GET['bt-search'])) {
+                $search_key = $_GET['input-search'];
 
-                                    foreach ($stmt as $row) {
-                                        $highlighted = preg_filter('/' . preg_quote($_POST['input-search'], '/') . '/i', '<b>$0</b>', $row['name']);
-                                        $image = (!empty($row['photo'])) ? 'images/' . $row['photo'] : 'images/noimage.jpg';
-                                        $inc = ($inc == 3) ? 1 : $inc + 1;
-                                        if ($inc == 1) echo "<div class='row'>";
-                                        echo "
-	       							<div class='col-sm-4'>
-	       								<div class='box box-solid'>
-		       								<div class='box-body prod-body'>
-		       									<img src='" . $image . "' width='100%' height='230px' class='thumbnail'>
-		       									<h5><a href='product.php?product=" . $row['slug'] . "'>" . $highlighted . "</a></h5>
-		       								</div>
-		       								<div class='box-footer'>
-		       									<b>&#36; " . number_format($row['price'], 2) . "</b>
-		       								</div>
-	       								</div>
-	       							</div>
-	       						";
-                                        if ($inc == 3) echo "</div>";
-                                    }
-                                    if ($inc == 1) echo "<div class='col-sm-4'></div><div class='col-sm-4'></div></div>";
-                                    if ($inc == 2) echo "<div class='col-sm-4'></div></div>";
-                                } catch (PDOException $e) {
-                                    echo "There is some problem in connection: " . $e->getMessage();
-                                }
-                            }
-
-                            $pdo->close();
-
-                            ?>
+                $sql = "SELECT * FROM `item` WHERE `title` LIKE :keyword ORDER BY `title`";
+                $stmt = $conn->prepare($sql);
+                $stmt->execute([':keyword' => $search_key]);
+                $rows = $stmt->rowCount();
+                if ($rows < 1) {
+                    echo '<h1 class="h1">No results found for <i>' . $search_key . '</i></h1>';
+                } else {
+                    echo '<h1 class="h1">Search results for <i>' . $search_key . '</i></h1>';
+                    echo '<div class="row row-cols-1 row-cols-md-3 g-4">';
+                    foreach ($stmt as $row) {
+            ?>
+                        <div class="col">
+                            <div class="card result">
+                                <img src="uploads/<?php echo $row['pictures'] ?>" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title"><?php echo $row['title'] ?></h5>
+                                    <p class="card-text"><?php echo $row['description'] ?></p>
+                                    <span class="card-text"><?php echo $row['unit'] ?> : <?php echo $row['unit_price'] ?></span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-sm-3">
-                            <?php include 'includes/sidebar.php'; ?>
-                        </div>
-                    </div>
-                </section>
 
-            </div>
+            <?php
+                    }
+                    echo "</div>";
+                }
+                $pdo->close();
+            }
+            ?>
         </div>
 
-        <?php include 'includes/footer.php'; ?>
-    </div>
+    <?php include 'includes/footer.php'; ?>
 
     <?php include 'includes/scripts.php'; ?>
 </body>
