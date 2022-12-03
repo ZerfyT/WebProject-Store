@@ -38,11 +38,21 @@
 
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Cart</a>
+                        <a class="nav-link" href="cart.php"><i class="fa-sharp fa-solid fa-cart-shopping mx-1"></i>Cart</a>
                         <!-- <a class="nav-link active" href="#" aria-current="page">Contact Us <span class="visually-hidden">(current)</span></a> -->
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="signin.php">Sign In</a>
+                        <?php
+                        if (isset($_SESSION['user'])) {
+                        ?>
+                            <a class="nav-link" href="profile.php"><i class="fa-solid fa-user-gear mx-1"></i>Account</a>
+                        <?php
+                        } else {
+                        ?>
+                            <a class="nav-link" href="signin.php"><i class="fa-solid fa-user-gear mx-1"></i>Sign In</a>
+                        <?php
+                        }
+                        ?>
                     </li>
                 </ul>
             </div>
