@@ -41,49 +41,70 @@ if (isset($_POST['bt-login'])) {
 // }
 ?>
 
-
-
-
 <?php include 'includes/header.php'; ?>
 
-<body class="bg-dark d-flex flex-column">
-  <main class="container d-flex w-50 h-100 my-4 py-5 px-4 align-items-center justify-content-center bg-secondary">
-    <!-- <div class="card p-5"> -->
+<body class="d-flex flex-column justify-content-between g-3 w-100">
 
-    <form method="post">
+  <!-- Header - Navigation Bar -->
+  <?php include "includes/navbar_dark.php"; ?>
 
-      <div class="mb-3">
-        <label for="user-email" class="form-label">Email address</label>
-        <input type="email" name="user-email" class="form-control" id="user-email" aria-describedby="emailHelp" required>
-        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+  <div class="container my-4">
+    <div class="row justify-content-center">
+      <div class="col-xl-5 col-md-8">
+        <form method="post" class="bg-white  rounded-5 shadow-5-strong p-5">
+          <!-- Email input -->
+          <div class="form-outline mb-4">
+            <input type="email" id="user-email" class="form-control" name="user-email" required />
+            <label class="form-label" for="user-email">Email address</label>
+          </div>
+
+          <!-- Password input -->
+          <div class="form-outline mb-4">
+            <input type="password" id="user-passwd" class="form-control" name="user-passwd" required />
+            <label class="form-label" for="user-passwd">Password</label>
+          </div>
+
+          <!-- 2 column grid layout for inline styling -->
+          <div class="row mb-4">
+            <div class="col d-flex justify-content-center">
+              <!-- Checkbox -->
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />
+                <label class="form-check-label" for="form1Example3">
+                  Remember me
+                </label>
+              </div>
+            </div>
+
+            <div class="col text-center">
+              <!-- Simple link -->
+              <a href="#!">Forgot password?</a>
+            </div>
+          </div>
+
+          <!-- Submit button -->
+          <div class="text-lg-start pt-2">
+            <button type="submit" name="bt-login" class="btn btn-primary btn-block">Sign in</button>
+            <p class="text-center small fw-bold mt-2 pt-1">Don't have an account? <a href="signup.php" class="link-danger">Register</a></p>
+          </div>
+
+          <div class="my-2">
+            <?php
+            if (isset($_SESSION['error'])) {
+              echo '<div class="alert alert-danger" role="alert">' . $_SESSION['error'] . '</div>';
+              unset($_SESSION['error']);
+            }
+            if (isset($_SESSION['success'])) {
+              echo '<div class="alert alert-success" role="alert">' . $_SESSION['error'] . '</div>';
+              unset($_SESSION['success']);
+            }
+            ?>
+          </div>
+
+        </form>
       </div>
-
-      <div class="mb-3">
-        <label for="user-passwd" class="form-label">Password</label>
-        <input type="password" name="user-passwd" class="form-control" id="user-passwd" required>
-      </div>
-
-      <div class="mb-3 text-center">
-        <button type="submit" name="bt-login" class="d-block btn btn-primary w-50 mx-auto">Submit</button>
-        <a href="password_forgot.php">I forgot my password</a><br>
-        <a href="signup.php" class="text-center">Register a new membership</a><br>
-      </div>
-
-      <div class="my-2">
-        <?php
-        if (isset($_SESSION['error'])) {
-          echo '<div class="alert alert-danger" role="alert">' . $_SESSION['error'] . '</div>';
-          unset($_SESSION['error']);
-        }
-        if (isset($_SESSION['success'])) {
-          echo '<div class="alert alert-success" role="alert">' . $_SESSION['error'] . '</div>';
-          unset($_SESSION['success']);
-        }
-        ?>
-      </div>
-    </form>
-  </main>
-
+    </div>
+  </div>
 
   <?php include 'includes/footer.php'; ?>
   <?php include 'includes/scripts.php'; ?>

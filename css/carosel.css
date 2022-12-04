@@ -5,6 +5,9 @@
 .carousel-item.active {
 	height: 100vh;
 }
+#introCarousel {
+	margin-top: -92.28px;
+}
 
 .carousel-item:nth-child(1) {
 	background-image: url("../images/slide_1.jpg");

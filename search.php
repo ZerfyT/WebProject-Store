@@ -25,9 +25,7 @@
             background-color: #fff
         } */
 
-        .card-item{
-           
-        }
+        .card-item {}
 
         .product {
             padding: 10px;
@@ -111,7 +109,7 @@
     </style>
 
     <!-- Header - Navigation Bar -->
-    <?php include "includes/navbar.php"; ?>
+    <?php include "includes/navbar_dark.php"; ?>
 
 
     <!-- Container -->
@@ -218,7 +216,7 @@
                     // $sql = "SELECT * FROM `item` WHERE `title` LIKE :keyword";
                     $stmt = $conn->prepare("SELECT * FROM `item` WHERE `title` LIKE :keyword");
                     $stmt->execute(['keyword' => "%$search_key%"]);
-                    
+
                     if ($stmt->rowCount() < 1) {
                         echo '<h1 class="h1">No results found for <i>' . $search_key . '</i></h1>';
                     } else {

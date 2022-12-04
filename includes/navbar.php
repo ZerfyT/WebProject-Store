@@ -1,6 +1,6 @@
 <header>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="z-index: 2000;">
+    <nav class="navbar navbar-expand-md navbar-light" style="z-index: 2000;">
         <!-- Container wrapper -->
         <div class="container-fluid">
             <!-- Toggle button -->
@@ -32,18 +32,20 @@
                         </a>
                         <!-- Dropdown menu -->
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li>
-                                <a class="dropdown-item" href="#">Category 1</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#">Category 2</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#">Category 3</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#">Category 4</a>
-                            </li>
+
+                            <?php
+                            $conn = $pdo->open();
+                            $stmt = $conn->prepare("SELECT * FROM `category`");
+                            $stmt->execute();
+                            foreach ($stmt as $row) {
+                            ?>
+                                <li>
+                                    <a class="dropdown-item" href="#"><?php echo $row['cat_name']; ?></a>
+                                </li>
+                            <?php
+                            }
+                            ?>
+
                         </ul>
                     </li>
                 </ul>
@@ -51,7 +53,7 @@
 
                 <!-- Search -->
                 <form action="search.php" method="get" class="collapse d-flex input-group w-auto ">
-                    <input type="search" name="input-search" class="form-control rounded bg-transparent text-light" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                    <input type="search" name="input-search" class="form-control rounded text-light" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
                     <span class="input-group-text border-0" id="search-addon">
                         <i class="fas fa-search text-light"></i>
                     </span>
@@ -74,7 +76,7 @@
                 ?>
                     <div class="dropdown">
                         <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuAvatar" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                            <i class="fa-solid fa-user-gear mx-1"></i>
+                            <i class="fa-solid fa-user-gear text-light mx-1"></i>
                             <!-- <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle" height="25" alt="Black and White Portrait of a Man" loading="lazy" /> -->
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
@@ -94,17 +96,17 @@
                 } else {
                 ?>
                     <!-- <div class="d-flex align-items-center"> -->
-                        <button type="button" class="btn btn-link px-3">
-                            <a class="" href="signin.php" role="button">Login</a>
+                    <button type="button" class="btn btn-link px-3">
+                        <a class="text-light" href="signin.php" role="button">Login</a>
 
-                        </button>
-                        <button type="button" class="btn btn-primary">
-                            <a class="text-light" href="signup.php" role="button">Sign up</a>
-                        </button>
+                    </button>
+                    <button type="button" class="btn btn-primary">
+                        <a class="text-light" href="signup.php" role="button">Sign up</a>
+                    </button>
 
 
 
-                        <!-- <button>
+                    <!-- <button>
                             <a href="signup.php">Sign up</a>
                         </button> -->
                     <!-- </div> -->

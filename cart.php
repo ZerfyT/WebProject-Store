@@ -17,7 +17,7 @@
     </style>
 
     <!-- Header - Navigation Bar -->
-    <?php include "includes/navbar.php"; ?>
+    <?php include "includes/navbar_dark.php"; ?>
 
 
     <!-- Container -->
@@ -40,7 +40,7 @@
                             header('location: index.php');
                         }
                         $stmt = $conn->prepare("SELECT * FROM `item` INNER JOIN `cart` ON `cart`.`item_id`=`item`.`item_id` WHERE  `cart`.`user_id`= :id");
-                        $stmt->execute(['id' => "%" . $_SESSION['user'] . "%"]);
+                        $stmt->execute(['id' => $_SESSION['user']]);
 
                         if ($stmt->rowCount() < 1) {
                             echo '<h1 class="h1">Your Cart is Empty.</h1>';
@@ -52,7 +52,7 @@
                                     <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
                                         <!-- Image -->
                                         <div class="bg-image hover-overlay hover-zoom ripple rounded" data-mdb-ripple-color="light">
-                                            <img src="<?php echo 'images/'.$row['pictures'] ?>" class="w-100" alt="" />
+                                            <img src="<?php echo 'images/' . $row['pictures'] ?>" class="w-100" alt="" />
                                             <a href="#">
                                                 <div class="mask" style="background-color: rgba(251, 251, 251, 0.2)"></div>
                                             </a>
@@ -62,9 +62,9 @@
 
                                     <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
                                         <!-- Data -->
-                                        <p><strong>Blue denim shirt</strong></p>
-                                        <p>Color: blue</p>
-                                        <p>Size: M</p>
+                                        <p><strong><?php echo $row['title'] ?></strong></p>
+                                        <p><?php echo $row['description'] ?></p>
+                                        <!-- <p>Size: M</p> -->
                                         <button type="button" class="btn btn-primary btn-sm me-1 mb-2" data-mdb-toggle="tooltip" title="Remove item">
                                             <i class="fas fa-trash"></i>
                                         </button>
@@ -82,7 +82,7 @@
                                             </button>
 
                                             <div class="form-outline">
-                                                <input id="form1" min="0" name="quantity" value="1" type="number" class="form-control" />
+                                                <input id="form1" min="0" name="quantity" value="<?php echo $row['quantity'] ?>" type="number" class="form-control" onchange="updatePrice(this.parentNode.parentNode.parentNode.querySelector('strong'), this.target.value);" />
                                                 <label class="form-label" for="form1">Quantity</label>
                                             </div>
 
@@ -94,19 +94,19 @@
 
                                         <!-- Price -->
                                         <p class="text-start text-md-center">
-                                            <strong>$17.99</strong>
+                                            <strong><?php echo $row['price'] ?></strong>
                                         </p>
                                         <!-- Price -->
                                     </div>
                                 </div>
                                 <!-- Single item -->
+                                <hr class="my-4" />
 
                         <?php
                             }
                         }
                         ?>
 
-                        <hr class="my-4" />
                     </div>
                 </div>
                 <!-- Cart Items -->
@@ -184,6 +184,41 @@
         <!-- </section> -->
 
     </div>
+
+    <script>
+        function updatePrice(ele, price, qt) {
+            console.log(ele);
+            console.log(price);
+            console.log(qt);
+            ele.innerHTML = price * qt;
+        }
+
+        function increment_quantity(cart_id) {
+            var inputQuantityElement = $("#input-quantity-" + cart_id);
+            var newQuantity = parseInt($(inputQuantityElement).val()) + 1;
+            save_to_db(cart_id, newQuantity);
+        }
+
+        function decrement_quantity(cart_id) {
+            var inputQuantityElement = $("#input-quantity-" + cart_id);
+            if ($(inputQuantityElement).val() > 1) {
+                var newQuantity = parseInt($(inputQuantityElement).val()) - 1;
+                save_to_db(cart_id, newQuantity);
+            }
+        }
+
+        function save_to_db(cart_id, new_quantity) {
+            var inputQuantityElement = $("#input-quantity-" + cart_id);
+            $.ajax({
+                url: "update_cart_quantity.php",
+                data: "cart_id=" + cart_id + "&new_quantity=" + new_quantity,
+                type: 'post',
+                success: function(response) {
+                    $(inputQuantityElement).val(new_quantity);
+                }
+            });
+        }
+    </script>
 
 
     <?php include 'includes/footer.php'; ?>

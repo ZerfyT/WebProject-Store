@@ -6,8 +6,8 @@
 <body class="">
     <style>
         .navbar {
-            --mdb-bg-opacity: 1;
-            background-color: transparent !important;
+            /* --mdb-bg-opacity: 1; */
+            /* background-color: transparent; */
         }
     </style>
 
@@ -32,10 +32,10 @@
                 <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
                     <div class="d-flex justify-content-center align-items-center h-100">
                         <div class="text-white text-center">
-                            <h1 class="mb-3">Learn Bootstrap 5 with MDB</h1>
-                            <h5 class="mb-4">Best & free guide of responsive web design</h5>
-                            <a class="btn btn-outline-light btn-lg m-2" href="" role="button" rel="nofollow" target="_blank">Start tutorial</a>
-                            <a class="btn btn-outline-light btn-lg m-2" href="" target="_blank" role="button">Download MDB UI KIT</a>
+                            <h1 class="mb-3">Building Maintenance</h1>
+                            <!-- <h5 class="mb-4">Best & free guide of responsive web design</h5> -->
+                            <a class="btn btn-outline-light btn-lg m-2" href="" role="button" rel="nofollow" target="_blank">View Products</a>
+                            <!-- <a class="btn btn-outline-light btn-lg m-2" href="" target="_blank" role="button">Download MDB UI KIT</a> -->
                         </div>
                     </div>
                 </div>
@@ -46,7 +46,8 @@
                 <div class="mask" style="background-color: rgba(0, 0, 0, 0.4);">
                     <div class="d-flex justify-content-center align-items-center h-100">
                         <div class="text-white text-center">
-                            <h2>You can place here any content</h2>
+                            <h1>Fabricating And Machining</h1>
+                            <a class="btn btn-outline-light btn-lg m-2" href="" role="button" rel="nofollow" target="_blank">View Products</a>
                         </div>
                     </div>
                 </div>
@@ -63,8 +64,8 @@
               ">
                     <div class="d-flex justify-content-center align-items-center h-100">
                         <div class="text-white text-center">
-                            <h2>And cover it with any mask</h2>
-                            <a class="btn btn-outline-light btn-lg m-2" href="" target="_blank" role="button">Learn about masks</a>
+                            <h1>Power Tools Accessories</h1>
+                            <a class="btn btn-outline-light btn-lg m-2" href="" target="_blank" role="button">View Products</a>
                         </div>
                     </div>
                 </div>
@@ -86,237 +87,279 @@
 
 
     <!-- Card Items -->
-    <section>
-        <div class="text-center container py-5">
-            <h4 class="mt-4 mb-5"><strong>TRENDING PRODUCTS</strong></h4>
+    <div class="text-center container py-2">
+        <h4 class="mt-4 mb-5"><strong>TRENDING PRODUCTS</strong></h4>
 
-            <div class="row">
-                <div class="col-lg-4 col-md-12 mb-4">
-                    <div class="card">
-                        <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light" data-mdb-ripple-color="light">
-                            <img src="images/slide_6.jpg" class="w-100" />
-                            <a href="#!">
-                                <div class="mask">
-                                    <div class="d-flex justify-content-start align-items-end h-100">
-                                        <h5><span class="badge bg-primary ms-2">New</span></h5>
-                                    </div>
-                                </div>
-                                <div class="hover-overlay">
-                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="card-body">
-                            <a href="" class="text-reset">
-                                <h5 class="card-title mb-3">Product name</h5>
-                            </a>
-                            <a href="" class="text-reset">
-                                <p>Category</p>
-                            </a>
-                            <h6 class="mb-3">$61.99</h6>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card">
-                        <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light" data-mdb-ripple-color="light">
-                            <img src="images/slide_5.jpg" class="w-100" />
-                            <a href="#!">
-                                <div class="mask">
-                                    <div class="d-flex justify-content-start align-items-end h-100">
-                                        <h5><span class="badge bg-success ms-2">Eco</span></h5>
-                                    </div>
-                                </div>
-                                <div class="hover-overlay">
-                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="card-body">
-                            <a href="" class="text-reset">
-                                <h5 class="card-title mb-3">Product name</h5>
-                            </a>
-                            <a href="" class="text-reset">
-                                <p>Category</p>
-                            </a>
-                            <h6 class="mb-3">$61.99</h6>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card">
-                        <div class="bg-image hover-zoom ripple" data-mdb-ripple-color="light">
-                            <img src="images/slide_4.jpg" class="w-100" />
-                            <a href="#!">
-                                <div class="mask">
-                                    <div class="d-flex justify-content-start align-items-end h-100">
-                                        <h5><span class="badge bg-danger ms-2">-10%</span></h5>
-                                    </div>
-                                </div>
-                                <div class="hover-overlay">
-                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="card-body">
-                            <a href="" class="text-reset">
-                                <h5 class="card-title mb-3">Product name</h5>
-                            </a>
-                            <a href="" class="text-reset">
-                                <p>Category</p>
-                            </a>
-                            <h6 class="mb-3">
-                                <s>$61.99</s><strong class="ms-2 text-danger">$50.99</strong>
-                            </h6>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-4 col-md-12 mb-4">
-                    <div class="card">
-                        <div class="bg-image hover-zoom ripple" data-mdb-ripple-color="light">
-                            <img src="images/slide_2.jpg" class="w-100" />
-                            <a href="#!">
-                                <div class="mask">
-                                    <div class="d-flex justify-content-start align-items-end h-100">
-                                        <h5>
-                                            <span class="badge bg-success ms-2">Eco</span><span class="badge bg-danger ms-2">-10%</span>
-                                        </h5>
-                                    </div>
-                                </div>
-                                <div class="hover-overlay">
-                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="card-body">
-                            <a href="" class="text-reset">
-                                <h5 class="card-title mb-3">Product name</h5>
-                            </a>
-                            <a href="" class="text-reset">
-                                <p>Category</p>
-                            </a>
-                            <h6 class="mb-3">
-                                <s>$61.99</s><strong class="ms-2 text-danger">$50.99</strong>
-                            </h6>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card">
-                        <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light" data-mdb-ripple-color="light">
-                            <img src="images/slide_3.jpg" class="w-100" />
-                            <a href="#!">
-                                <div class="mask">
-                                    <div class="d-flex justify-content-start align-items-end h-100"></div>
-                                </div>
-                                <div class="hover-overlay">
-                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="card-body">
-                            <a href="" class="text-reset">
-                                <h5 class="card-title mb-3">Product name</h5>
-                            </a>
-                            <a href="" class="text-reset">
-                                <p>Category</p>
-                            </a>
-                            <h6 class="mb-3">$61.99</h6>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card">
-                        <div class="bg-image hover-zoom ripple" data-mdb-ripple-color="light">
-                            <img src="images/slide_6.jpg" class="w-100" />
-                            <a href="#!">
-                                <div class="mask">
-                                    <div class="d-flex justify-content-start align-items-end h-100">
-                                        <h5>
-                                            <span class="badge bg-primary ms-2">New</span><span class="badge bg-success ms-2">Eco</span><span class="badge bg-danger ms-2">-10%</span>
-                                        </h5>
-                                    </div>
-                                </div>
-                                <div class="hover-overlay">
-                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="card-body">
-                            <a href="" class="text-reset">
-                                <h5 class="card-title mb-3">Product name</h5>
-                            </a>
-                            <a href="" class="text-reset">
-                                <p>Category</p>
-                            </a>
-                            <h6 class="mb-3">
-                                <s>$61.99</s><strong class="ms-2 text-danger">$50.99</strong>
-                            </h6>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
-
-
-    <!-- Cards - Top Items -->
-    <div id="top-items" class="container container-fluid">
-
-        <h3 class="main-title h3 w-100 d-block text-light text-center">
-            <span class="bg-dark">TRENDING PRODUCTS</span>
-        </h3>
-
-        <div class="row row-cols-4 g-4">
-            <div class="col">
+        <div class="row">
+            <div class="col-lg-4 col-md-12 mb-4">
                 <div class="card">
-                    <img src="images/car_img_1.jpg" class="card-img-top" alt="...">
+                    <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light" data-mdb-ripple-color="light">
+                        <img src="images/slide_6.jpg" class="w-100" />
+                        <a href="#!">
+                            <div class="mask">
+                                <div class="d-flex justify-content-start align-items-end h-100">
+                                    <h5><span class="badge bg-primary ms-2">New</span></h5>
+                                </div>
+                            </div>
+                            <div class="hover-overlay">
+                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                            </div>
+                        </a>
+                    </div>
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This</p>
+                        <a href="" class="text-reset">
+                            <h5 class="card-title mb-3">Product name</h5>
+                        </a>
+                        <a href="" class="text-reset">
+                            <p>Category</p>
+                        </a>
+                        <h6 class="mb-3">$61.99</h6>
                     </div>
                 </div>
             </div>
-            <div class="col">
+
+            <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card">
-                    <img src="images/slide_1.jpg" class="card-img-top" alt="...">
+                    <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light" data-mdb-ripple-color="light">
+                        <img src="images/slide_5.jpg" class="w-100" />
+                        <a href="#!">
+                            <div class="mask">
+                                <div class="d-flex justify-content-start align-items-end h-100">
+                                    <h5><span class="badge bg-success ms-2">Eco</span></h5>
+                                </div>
+                            </div>
+                            <div class="hover-overlay">
+                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                            </div>
+                        </a>
+                    </div>
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This</p>
+                        <a href="" class="text-reset">
+                            <h5 class="card-title mb-3">Product name</h5>
+                        </a>
+                        <a href="" class="text-reset">
+                            <p>Category</p>
+                        </a>
+                        <h6 class="mb-3">$61.99</h6>
                     </div>
                 </div>
             </div>
-            <div class="col">
+
+            <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card">
-                    <img src="images/slide_2.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This </p>
+                    <div class="bg-image hover-zoom ripple" data-mdb-ripple-color="light">
+                        <img src="images/slide_4.jpg" class="w-100" />
+                        <a href="#!">
+                            <div class="mask">
+                                <div class="d-flex justify-content-start align-items-end h-100">
+                                    <h5><span class="badge bg-danger ms-2">-10%</span></h5>
+                                </div>
+                            </div>
+                            <div class="hover-overlay">
+                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                            </div>
+                        </a>
                     </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <img src="images/slide_3.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This</p>
+                        <a href="" class="text-reset">
+                            <h5 class="card-title mb-3">Product name</h5>
+                        </a>
+                        <a href="" class="text-reset">
+                            <p>Category</p>
+                        </a>
+                        <h6 class="mb-3">
+                            <s>$61.99</s><strong class="ms-2 text-danger">$50.99</strong>
+                        </h6>
                     </div>
                 </div>
             </div>
         </div>
 
+        <div class="row">
+            <div class="col-lg-4 col-md-12 mb-4">
+                <div class="card">
+                    <div class="bg-image hover-zoom ripple" data-mdb-ripple-color="light">
+                        <img src="images/slide_2.jpg" class="w-100" />
+                        <a href="#!">
+                            <div class="mask">
+                                <div class="d-flex justify-content-start align-items-end h-100">
+                                    <h5>
+                                        <span class="badge bg-success ms-2">Eco</span><span class="badge bg-danger ms-2">-10%</span>
+                                    </h5>
+                                </div>
+                            </div>
+                            <div class="hover-overlay">
+                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <a href="" class="text-reset">
+                            <h5 class="card-title mb-3">Product name</h5>
+                        </a>
+                        <a href="" class="text-reset">
+                            <p>Category</p>
+                        </a>
+                        <h6 class="mb-3">
+                            <s>$61.99</s><strong class="ms-2 text-danger">$50.99</strong>
+                        </h6>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card">
+                    <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light" data-mdb-ripple-color="light">
+                        <img src="images/slide_3.jpg" class="w-100" />
+                        <a href="#!">
+                            <div class="mask">
+                                <div class="d-flex justify-content-start align-items-end h-100"></div>
+                            </div>
+                            <div class="hover-overlay">
+                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <a href="" class="text-reset">
+                            <h5 class="card-title mb-3">Product name</h5>
+                        </a>
+                        <a href="" class="text-reset">
+                            <p>Category</p>
+                        </a>
+                        <h6 class="mb-3">$61.99</h6>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card">
+                    <div class="bg-image hover-zoom ripple" data-mdb-ripple-color="light">
+                        <img src="images/slide_6.jpg" class="w-100" />
+                        <a href="#!">
+                            <div class="mask">
+                                <div class="d-flex justify-content-start align-items-end h-100">
+                                    <h5>
+                                        <span class="badge bg-primary ms-2">New</span><span class="badge bg-success ms-2">Eco</span><span class="badge bg-danger ms-2">-10%</span>
+                                    </h5>
+                                </div>
+                            </div>
+                            <div class="hover-overlay">
+                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <a href="" class="text-reset">
+                            <h5 class="card-title mb-3">Product name</h5>
+                        </a>
+                        <a href="" class="text-reset">
+                            <p>Category</p>
+                        </a>
+                        <h6 class="mb-3">
+                            <s>$61.99</s><strong class="ms-2 text-danger">$50.99</strong>
+                        </h6>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+
+
+
+
+    <!-- Cards - Best Selling Categories -->
+    <div class="text-center container py-2">
+        <h4 class="mt-4 mb-5"><strong>BEST SELLING CATEGORIES</strong></h4>
+        <div class="card-group">
+
+            <div class="card">
+                <img src="images/cat_1.png" class="card-img-top hover-shadow" alt="" height="150" />
+                <div class="card-body">
+                    <h5 class="card-title">Tools</h5>
+                    <!-- <p class="card-text">
+                    This is a wider card with supporting text below as a natural lead-in to
+                    additional content. This content is a little bit longer.
+                </p> -->
+                </div>
+                <!-- <div class="card-footer">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                </div> -->
+            </div>
+
+            <div class="card">
+                <img src="images/cat_2.jpg" class="card-img-top hover-shadow" alt="" height="150" />
+                <div class="card-body">
+                    <h5 class="card-title">Building Profiles</h5>
+                    <!-- <p class="card-text">
+                    This is a wider card with supporting text below as a natural lead-in to
+                    additional content. This content is a little bit longer.
+                </p> -->
+                </div>
+                <!-- <div class="card-footer">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                </div> -->
+            </div>
+
+            <div class="card">
+                <img src="images/cat_3.jpg" class="card-img-top hover-shadow" alt="" height="150" />
+                <div class="card-body">
+                    <h5 class="card-title">Installation Systems</h5>
+                    <!-- <p class="card-text">
+                    This is a wider card with supporting text below as a natural lead-in to
+                    additional content. This content is a little bit longer.
+                </p> -->
+                </div>
+                <!-- <div class="card-footer">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                </div> -->
+            </div>
+
+            <div class="card">
+                <img src="images/cat_4.png" class="card-img-top hover-shadow" alt="" height="150" />
+                <div class="card-body">
+                    <h5 class="card-title">Electronic Devices</h5>
+                    <!-- <p class="card-text">
+                    This is a wider card with supporting text below as a natural lead-in to
+                    additional content. This content is a little bit longer.
+                </p> -->
+                </div>
+                <!-- <div class="card-footer">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                </div> -->
+            </div>
+
+            <div class="card">
+                <img src="images/cat_5.png" class="card-img-top hover-shadow" alt="" height="150" />
+                <div class="card-body">
+                    <h5 class="card-title">Clean & Wash</h5>
+                    <!-- <p class="card-text">
+                    This is a wider card with supporting text below as a natural lead-in to
+                    additional content. This content is a little bit longer.
+                </p> -->
+                </div>
+                <!-- <div class="card-footer">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                </div> -->
+            </div>
+
+            <div class="card">
+                <img src="images/cat_6.jpg" class="card-img-top hover-shadow" alt="" height="150" />
+                <div class="card-body">
+                    <h5 class="card-title">Tapes and Mesh</h5>
+                    <!-- <p class="card-text">
+                    This is a wider card with supporting text below as a natural lead-in to
+                    additional content. This content is a little bit longer.
+                </p> -->
+                </div>
+                <!-- <div class="card-footer">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                </div> -->
+            </div>
+        </div>
+    </div>
+
 
     <?php include 'includes/footer.php'; ?>
 
