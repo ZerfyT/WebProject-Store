@@ -1,61 +1,123 @@
-<header class="">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="nav navbar-nav">
-            <a class="nav-item nav-link active" href="#" aria-current="page">Home <span class="visually-hidden">(current)</span></a>
-            <a class="nav-item nav-link" href="#">Home</a>
-        </div>
-    </nav>
-
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<header>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="z-index: 2000;">
+        <!-- Container wrapper -->
         <div class="container-fluid">
-            <a class="navbar-brand" href="">Company</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+            <!-- Toggle button -->
+            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
             </button>
-            <div class="collapse navbar-collapse" id="collapsibleNavId">
-                <ul class="navbar-nav me-auto">
+
+            <!-- Collapsible wrapper -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Navbar brand -->
+                <a class="navbar-brand mt-2 mt-lg-0" href="#">
+                    <img src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp" height="15" alt="MDB Logo" loading="lazy" />
+                </a>
+                <!-- Left links -->
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contact Us</a>
-                        <!-- <a class="nav-link active" href="#" aria-current="page">Contact Us <span class="visually-hidden">(current)</span></a> -->
+                        <a class="nav-link" href="#">Dashboard</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">About</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact us</a>
+                    </li>
+                    <!-- Navbar dropdown -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownId">
-                            <a class="dropdown-item" href="#">Category 1</a>
-                            <a class="dropdown-item" href="#">Category 2</a>
-                            <a class="dropdown-item" href="#">Category 3</a>
-                        </div>
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                            Categories
+                        </a>
+                        <!-- Dropdown menu -->
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li>
+                                <a class="dropdown-item" href="#">Category 1</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">Category 2</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">Category 3</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">Category 4</a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
+                <!-- Left links -->
 
-                <form class="d-flex" action="search.php" method="get">
-                    <input class="form-control me-sm-2" type="text" placeholder="Search" name="input-search">
-                    <button class="btn btn-secondary my-2 my-sm-0" type="submit" name="bt-search">Search</button>
+                <!-- Search -->
+                <form action="search.php" method="get" class="collapse d-flex input-group w-auto ">
+                    <input type="search" name="input-search" class="form-control rounded bg-transparent text-light" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                    <span class="input-group-text border-0" id="search-addon">
+                        <i class="fas fa-search text-light"></i>
+                    </span>
                 </form>
-
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="cart.php"><i class="fa-sharp fa-solid fa-cart-shopping mx-1"></i>Cart</a>
-                        <!-- <a class="nav-link active" href="#" aria-current="page">Contact Us <span class="visually-hidden">(current)</span></a> -->
-                    </li>
-                    <li class="nav-item">
-                        <?php
-                        if (isset($_SESSION['user'])) {
-                        ?>
-                            <a class="nav-link" href="profile.php"><i class="fa-solid fa-user-gear mx-1"></i>Account</a>
-                        <?php
-                        } else {
-                        ?>
-                            <a class="nav-link" href="signin.php"><i class="fa-solid fa-user-gear mx-1"></i>Sign In</a>
-                        <?php
-                        }
-                        ?>
-                    </li>
-                </ul>
             </div>
+            <!-- Collapsible wrapper -->
+
+            <!-- Right elements -->
+
+
+            <div class="d-flex align-items-center">
+                <!-- Icon -->
+                <a class="link-secondary mx-3" href="cart.php">
+                    <i class="fas fa-shopping-cart text-light"></i>
+                </a>
+
+                <!-- Avatar -->
+                <?php
+                if (isset($_SESSION['user'])) {
+                ?>
+                    <div class="dropdown">
+                        <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuAvatar" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-user-gear mx-1"></i>
+                            <!-- <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle" height="25" alt="Black and White Portrait of a Man" loading="lazy" /> -->
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
+                            <li>
+                                <a class="dropdown-item" href="profile.php">My profile</a>
+                            </li>
+                            <!-- <li>
+                                <a class="dropdown-item" href="#">Settings</a>
+                            </li> -->
+                            <li>
+                                <a class="dropdown-item" href="logout.php">Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- <a class="nav-link" href="profile.php"><i class="fa-solid fa-user-gear mx-1"></i>Account</a> -->
+                <?php
+                } else {
+                ?>
+                    <!-- <div class="d-flex align-items-center"> -->
+                        <button type="button" class="btn btn-link px-3">
+                            <a class="" href="signin.php" role="button">Login</a>
+
+                        </button>
+                        <button type="button" class="btn btn-primary">
+                            <a class="text-light" href="signup.php" role="button">Sign up</a>
+                        </button>
+
+
+
+                        <!-- <button>
+                            <a href="signup.php">Sign up</a>
+                        </button> -->
+                    <!-- </div> -->
+                    <!-- <a class="nav-link" href="signin.php"><i class="fa-solid fa-user-gear mx-1"></i>Sign In</a> -->
+                <?php
+                }
+                ?>
+
+
+            </div>
+            <!-- Right elements -->
         </div>
+        <!-- Container wrapper -->
     </nav>
+    <!-- Navbar -->
 </header>

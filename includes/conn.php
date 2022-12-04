@@ -23,7 +23,17 @@ Class Database{
  	}
  
 }
-
 $pdo = new Database();
+
+// function connectPDO(){
+	// $pdo = new Database();
+// 	return $pdo->open();
+// }
+
+// function closePDO($con){
+// 	$con->close();
+// }
+
+
  
 ?>

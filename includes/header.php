@@ -6,15 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Hardware Store</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-     <!-- Bootstrap CSS v5.2.3 -->
-     <!-- <link rel="stylesheet" href="resources/bootstrap-5.2.3-dist/css/bootstrap.min.css"> -->
-    <link rel="stylesheet" href="resources/bootswatch-5.2.2/zephyr/bootstrap.min.css">
+    <!-- Bootstrap CSS v5.2.3 -->
+    <!-- <link rel="stylesheet" href="resources/bootstrap-5.2.3-dist/css/bootstrap.min.css"> -->
+
+    <!-- Bootswatch CSS v5.2.2 -->
+    <!-- <link rel="stylesheet" href="resources/bootswatch-5.2.2/zephyr/bootstrap.min.css"> -->
+
+    <!-- MDB5 Bootstrap CSS v6.0.1 -->
+    <link rel="stylesheet" href="resources/mdb5-6.0.1/css/mdb.min.css">
 
     <!-- Google Font -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="dist/css/index.css">
-    <link rel="stylesheet" href="dist/css/search.css">
+    <link rel="stylesheet" href="css/carosel.css">
+    <link rel="stylesheet" href="css/search.css">
 
 </head>
