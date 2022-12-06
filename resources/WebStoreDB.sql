@@ -14,12 +14,10 @@
 
 
 -- Dumping database structure for web_project_store
-DROP DATABASE IF EXISTS `web_project_store`;
 CREATE DATABASE IF NOT EXISTS `web_project_store` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
 USE `web_project_store`;
 
 -- Dumping structure for table web_project_store.cart
-DROP TABLE IF EXISTS `cart`;
 CREATE TABLE IF NOT EXISTS `cart` (
   `user_id` int(3) NOT NULL,
   `item_id` int(3) NOT NULL,
@@ -30,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `cart` (
   CONSTRAINT `fk_user_id_cart` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table web_project_store.cart: ~0 rows (approximately)
+-- Dumping data for table web_project_store.cart: ~2 rows (approximately)
 /*!40000 ALTER TABLE `cart` DISABLE KEYS */;
 INSERT INTO `cart` (`user_id`, `item_id`, `quantity`) VALUES
 	(1, 7, 1),
@@ -39,7 +37,6 @@ INSERT INTO `cart` (`user_id`, `item_id`, `quantity`) VALUES
 /*!40000 ALTER TABLE `cart` ENABLE KEYS */;
 
 -- Dumping structure for table web_project_store.category
-DROP TABLE IF EXISTS `category`;
 CREATE TABLE IF NOT EXISTS `category` (
   `cat_id` int(3) NOT NULL AUTO_INCREMENT,
   `cat_name` varchar(100) NOT NULL,
@@ -60,7 +57,6 @@ INSERT INTO `category` (`cat_id`, `cat_name`) VALUES
 /*!40000 ALTER TABLE `category` ENABLE KEYS */;
 
 -- Dumping structure for table web_project_store.item
-DROP TABLE IF EXISTS `item`;
 CREATE TABLE IF NOT EXISTS `item` (
   `item_id` int(3) NOT NULL AUTO_INCREMENT,
   `title` varchar(50) NOT NULL,
@@ -85,7 +81,6 @@ INSERT INTO `item` (`item_id`, `title`, `description`, `price`, `avail_stock`, `
 /*!40000 ALTER TABLE `item` ENABLE KEYS */;
 
 -- Dumping structure for table web_project_store.order_details
-DROP TABLE IF EXISTS `order_details`;
 CREATE TABLE IF NOT EXISTS `order_details` (
   `order_id` int(3) NOT NULL,
   `item_id` int(3) NOT NULL,
@@ -98,10 +93,12 @@ CREATE TABLE IF NOT EXISTS `order_details` (
 
 -- Dumping data for table web_project_store.order_details: ~0 rows (approximately)
 /*!40000 ALTER TABLE `order_details` DISABLE KEYS */;
+INSERT INTO `order_details` (`order_id`, `item_id`, `quantity`) VALUES
+	(1, 9, 2),
+	(2, 8, 3);
 /*!40000 ALTER TABLE `order_details` ENABLE KEYS */;
 
 -- Dumping structure for table web_project_store.product
-DROP TABLE IF EXISTS `product`;
 CREATE TABLE IF NOT EXISTS `product` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `description` varchar(255) DEFAULT NULL,
@@ -120,7 +117,6 @@ INSERT INTO `product` (`id`, `description`, `image`, `price`) VALUES
 /*!40000 ALTER TABLE `product` ENABLE KEYS */;
 
 -- Dumping structure for table web_project_store.user
-DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
   `user_id` int(3) NOT NULL AUTO_INCREMENT,
   `full_name` varchar(50) NOT NULL,
@@ -144,7 +140,6 @@ INSERT INTO `user` (`user_id`, `full_name`, `email`, `password`, `ac_type`, `tp_
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 
 -- Dumping structure for table web_project_store.user_order
-DROP TABLE IF EXISTS `user_order`;
 CREATE TABLE IF NOT EXISTS `user_order` (
   `order_id` int(3) NOT NULL AUTO_INCREMENT,
   `user_id` int(3) NOT NULL,
@@ -152,10 +147,13 @@ CREATE TABLE IF NOT EXISTS `user_order` (
   PRIMARY KEY (`order_id`),
   KEY `fk_user_id_order` (`user_id`),
   CONSTRAINT `fk_user_id_order` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table web_project_store.user_order: ~0 rows (approximately)
 /*!40000 ALTER TABLE `user_order` DISABLE KEYS */;
+INSERT INTO `user_order` (`order_id`, `user_id`, `order_date`) VALUES
+	(1, 1, '2022-12-06'),
+	(2, 2, '2022-12-06');
 /*!40000 ALTER TABLE `user_order` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

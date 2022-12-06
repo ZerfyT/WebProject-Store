@@ -1,4 +1,11 @@
 <?php include 'includes/session.php'; ?>
+<?php
+if (!isset($_SESSION['user'])) {
+    header('location: signin.php');
+    exit();
+}
+?>
+
 <?php include 'includes/header.php'; ?>
 
 <body class="">
@@ -36,9 +43,6 @@
                     <div class="card-body">
 
                         <?php
-                        if (!isset($_SESSION['user'])) {
-                            header('location: index.php');
-                        }
                         $stmt = $conn->prepare("SELECT * FROM `item` INNER JOIN `cart` ON `cart`.`item_id`=`item`.`item_id` WHERE  `cart`.`user_id`= :id");
                         $stmt->execute(['id' => $_SESSION['user']]);
 

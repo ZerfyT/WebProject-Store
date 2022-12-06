@@ -4,11 +4,11 @@ header('location: ../index.php');
 //   include 'includes/format.php'; 
 ?>
 <?php
-$today = date('Y-m-d');
-$year = date('Y');
-if (isset($_GET['year'])) {
-  $year = $_GET['year'];
-}
+// $today = date('Y-m-d');
+// $year = date('Y');
+// if (isset($_GET['year'])) {
+//   $year = $_GET['year'];
+// }
 
 $conn = $pdo->open();
 ?>

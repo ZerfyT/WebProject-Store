@@ -9,7 +9,7 @@
 
 	$conn = $pdo->open();
 
-	$stmt = $conn->prepare("SELECT * FROM user WHERE id_num=:id");
+	$stmt = $conn->prepare("SELECT * FROM user WHERE user_id=:id");
 	$stmt->execute(['id'=>$_SESSION['admin']]);
 	$admin = $stmt->fetch();
 
