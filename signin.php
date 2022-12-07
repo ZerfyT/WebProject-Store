@@ -21,7 +21,7 @@ if (isset($_POST['bt-login'])) {
     if (hash_equals($password, $row['password'])) {
       if ($row['ac_type'] == 1) {
         $_SESSION['admin'] = $row['user_id'];
-        header('location: admin/dashboard.php');
+        header('location: admin/admin.php');
       } else if ($row['ac_type'] == 0) {
         $_SESSION['user'] = $row['user_id'];
         header('location: index.php');

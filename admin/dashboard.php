@@ -3,7 +3,7 @@
 session_start();
 
 // Is Admin Logged?
-if (empty($_SESSION['admin-name']) && empty($_SESSION['admin-is-logged'])) {
+if (empty($_SESSION['admin']) && empty($_SESSION['admin-is-logged'])) {
   echo "Please Login..";
   header("Location: login.php");
   exit;

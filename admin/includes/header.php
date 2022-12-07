@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
@@ -7,10 +7,10 @@
   <title>Ecommerce Site using PHP</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <!-- MDB5 Bootstrap CSS v6.0.1 -->
-  <link rel="stylesheet" href="../resources/mdb5-6.0.1/css/mdb.min.css">
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+  <!-- MDB5 Bootstrap CSS v6.0.1 -->
+  <link rel="stylesheet" href="../resources/mdb5-6.0.1/css/mdb.min.css">
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/admin.css" />
 

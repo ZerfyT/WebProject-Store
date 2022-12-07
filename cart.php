@@ -56,7 +56,7 @@ if (!isset($_SESSION['user'])) {
                                     <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
                                         <!-- Image -->
                                         <div class="bg-image hover-overlay hover-zoom ripple rounded" data-mdb-ripple-color="light">
-                                            <img src="<?php echo 'images/' . $row['pictures'] ?>" class="w-100" alt="" />
+                                            <img src="<?php echo 'uploads/' . $row['pictures'] ?>" class="w-100" alt="" style="object-fit: fill; max-height: 150px;" />
                                             <a href="#">
                                                 <div class="mask" style="background-color: rgba(251, 251, 251, 0.2)"></div>
                                             </a>
@@ -69,7 +69,7 @@ if (!isset($_SESSION['user'])) {
                                         <p><strong><?php echo $row['title'] ?></strong></p>
                                         <p><?php echo $row['description'] ?></p>
                                         <!-- <p>Size: M</p> -->
-                                        <button type="button" class="btn btn-primary btn-sm me-1 mb-2" data-mdb-toggle="tooltip" title="Remove item">
+                                        <button type="button" class="btn btn-primary btn-sm me-1 mb-2 bt-delete" data-mdb-toggle="tooltip" data-id-item="<?php echo $row['item_id'] ?>" data-id-user="<?php echo $_SESSION['user'] ?>" title="Remove item">
                                             <i class="fas fa-trash"></i>
                                         </button>
                                         <button type="button" class="btn btn-danger btn-sm mb-2" data-mdb-toggle="tooltip" title="Move to the wish list">
@@ -189,44 +189,34 @@ if (!isset($_SESSION['user'])) {
 
     </div>
 
-    <script>
-        function updatePrice(ele, price, qt) {
-            console.log(ele);
-            console.log(price);
-            console.log(qt);
-            ele.innerHTML = price * qt;
-        }
-
-        function increment_quantity(cart_id) {
-            var inputQuantityElement = $("#input-quantity-" + cart_id);
-            var newQuantity = parseInt($(inputQuantityElement).val()) + 1;
-            save_to_db(cart_id, newQuantity);
-        }
-
-        function decrement_quantity(cart_id) {
-            var inputQuantityElement = $("#input-quantity-" + cart_id);
-            if ($(inputQuantityElement).val() > 1) {
-                var newQuantity = parseInt($(inputQuantityElement).val()) - 1;
-                save_to_db(cart_id, newQuantity);
-            }
-        }
-
-        function save_to_db(cart_id, new_quantity) {
-            var inputQuantityElement = $("#input-quantity-" + cart_id);
-            $.ajax({
-                url: "update_cart_quantity.php",
-                data: "cart_id=" + cart_id + "&new_quantity=" + new_quantity,
-                type: 'post',
-                success: function(response) {
-                    $(inputQuantityElement).val(new_quantity);
-                }
-            });
-        }
-    </script>
-
-
     <?php include 'includes/footer.php'; ?>
     <?php include 'includes/scripts.php'; ?>
+
+    <script>
+        $(function() {
+			$(document).on('click', '.bt-delete', function(e) {
+				e.preventDefault();
+				var id_item = $(this).data('id-item');
+				var id_user = $(this).data('id-user');
+				$.ajax({
+					type: 'POST',
+					url: 'cart_delete.php',
+					data: {
+						id_item: id_item,
+                        id_user: id_user
+					},
+					dataType: 'json',
+					success: function(response) {
+						if (!response.error) {
+							getDetails();
+							getCart();
+							getTotal();
+						}
+					}
+				});
+			});
+        });
+    </script>
 </body>
 
 </html>
