@@ -5,4 +5,6 @@
 <!-- MDB -->
 <script type="text/javascript" src="resources/mdb5-6.0.1/js/mdb.min.js"></script>
 
+<script type="text/javascript" src="resources/jquery-3.6.1/jquery-3.6.1.min.js"></script>
+
 <script src="https://kit.fontawesome.com/80652781b5.js" crossorigin="anonymous"></script>

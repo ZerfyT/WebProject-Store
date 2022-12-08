@@ -40,7 +40,77 @@ if (!isset($_SESSION['user'])) {
                     <div class="card-header py-3">
                         <h5 class="mb-0">Your Shopping Cart</h5>
                     </div>
-                    <div id="cart-view" class="card-body">
+                    <div class="card-body">
+
+                        <?php
+                        $stmt = $conn->prepare("SELECT * FROM `item` INNER JOIN `cart` ON `cart`.`item_id`=`item`.`item_id` WHERE  `cart`.`user_id`= :id");
+                        $stmt->execute(['id' => $_SESSION['user']]);
+
+                        if ($stmt->rowCount() < 1) {
+                            echo '<h1 class="h1">Your Cart is Empty.</h1>';
+                        } else {
+                            foreach ($stmt as $row) {
+                        ?>
+                                <!-- Single item -->
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
+                                        <!-- Image -->
+                                        <div class="bg-image hover-overlay hover-zoom ripple rounded" data-mdb-ripple-color="light">
+                                            <img src="<?php echo 'uploads/' . $row['pictures'] ?>" class="w-100" alt="" style="object-fit: fill; max-height: 150px;" />
+                                            <a href="#">
+                                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.2)"></div>
+                                            </a>
+                                        </div>
+                                        <!-- Image -->
+                                    </div>
+
+                                    <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
+                                        <!-- Data -->
+                                        <p><strong><?php echo $row['title'] ?></strong></p>
+                                        <p><?php echo $row['description'] ?></p>
+                                        <!-- <p>Size: M</p> -->
+                                        <button type="button" class="btn btn-primary btn-sm me-1 mb-2 bt-delete" data-mdb-toggle="tooltip" data-id-item="<?php echo $row['item_id'] ?>" data-id-user="<?php echo $_SESSION['user'] ?>" title="Remove item">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-danger btn-sm mb-2" data-mdb-toggle="tooltip" title="Move to the wish list">
+                                            <i class="fas fa-heart"></i>
+                                        </button>
+                                        <!-- Data -->
+                                    </div>
+
+                                    <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                                        <!-- Quantity -->
+                                        <div class="d-flex mb-4" style="max-width: 300px">
+                                            <button class="btn btn-primary px-3 me-2" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                                                <i class="fas fa-minus"></i>
+                                            </button>
+
+                                            <div class="form-outline">
+                                                <input id="form1" min="0" name="quantity" value="<?php echo $row['quantity'] ?>" type="number" class="form-control" onchange="updatePrice(this.parentNode.parentNode.parentNode.querySelector('strong'), this.target.value);" />
+                                                <label class="form-label" for="form1">Quantity</label>
+                                            </div>
+
+                                            <button class="btn btn-primary px-3 ms-2" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                                                <i class="fas fa-plus"></i>
+                                            </button>
+                                        </div>
+                                        <!-- Quantity -->
+
+                                        <!-- Price -->
+                                        <p class="text-start text-md-center">
+                                            <strong><?php echo $row['price'] ?></strong>
+                                        </p>
+                                        <!-- Price -->
+                                    </div>
+                                </div>
+                                <!-- Single item -->
+                                <hr class="my-4" />
+
+                        <?php
+                            }
+                        }
+                        ?>
+
                     </div>
                 </div>
                 <!-- Cart Items -->
@@ -71,11 +141,11 @@ if (!isset($_SESSION['user'])) {
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
                                 Products
-                                <span id="total"></span>
+                                <span>$53.98</span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center px-0">
                                 Shipping
-                                <span id="shipping">Free</span>
+                                <span>Gratis</span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
                                 <div>
@@ -84,7 +154,7 @@ if (!isset($_SESSION['user'])) {
                                         <p class="mb-0">(including VAT)</p>
                                     </strong>
                                 </div>
-                                <span><strong id="net-total"></strong></span>
+                                <span><strong>$53.98</strong></span>
                             </li>
                         </ul>
 
@@ -106,7 +176,6 @@ if (!isset($_SESSION['user'])) {
     <?php include 'includes/scripts.php'; ?>
 
     <script>
-        getCart();
         // const btDelete = document.querySelector('.bt-delete');
         // btDelete.addEventListener('click', updateCart(this));
 
@@ -125,20 +194,22 @@ if (!isset($_SESSION['user'])) {
         //     document.querySelector('.card-body').innerHTML = response;
         // }
 
-        // Delete Cart Item
         $(function() {
             $(document).on('click', '.bt-delete', function(e) {
                 e.preventDefault();
                 var id_item = $(this).data('id-item');
+                var id_user = $(this).data('id-user');
                 $.ajax({
                     type: 'POST',
                     url: 'cart_delete.php',
                     data: {
-                        id_item: id_item
+                        id_item: id_item,
+                        id_user: id_user
                     },
                     dataType: 'json',
                     success: function(response) {
                         if (!response.error) {
+                            getDetails();
                             getCart();
                             getTotal();
                         }
@@ -147,83 +218,17 @@ if (!isset($_SESSION['user'])) {
             });
         });
 
-        // Get Cart items from DB
         function getCart() {
             $.ajax({
                 type: 'POST',
                 url: 'cart_fetch.php',
                 dataType: 'json',
                 success: function(response) {
-                    $('#cart-view').html(response.list);
+                    $('#cart_menu').html(response.list);
                     $('.cart_count').html(response.count);
-                    getTotal();
                 }
             });
         }
-
-        // Get Total in Cart
-        function getTotal() {
-            $.ajax({
-                type: 'POST',
-                url: 'cart_total.php',
-                dataType: 'json',
-                success: function(response) {
-                    $('#total').html('LKR ' + response);
-                    $('#net-total').html('LKR ' + response);
-                    // total = response;
-                }
-            });
-        }
-
-        // Quantity Minus
-        $(document).on('click', '.minus', function(e) {
-            e.preventDefault();
-            var id_item = $(this).data('id-item');
-            var qty = $('#qty_' + id_item).val();
-            if (qty > 1) {
-                qty--;
-            }
-            $('#qty_' + id_item).val(qty);
-            $.ajax({
-                type: 'POST',
-                url: 'cart_update.php',
-                data: {
-                    id_item: id_item,
-                    qty: qty
-                },
-                dataType: 'json',
-                success: function(response) {
-                    if (!response.error) {
-                        getCart();
-                        getTotal();
-                    }
-                }
-            });
-        });
-
-        // Quantity Add
-        $(document).on('click', '.add', function(e) {
-            e.preventDefault();
-            var id_item = $(this).data('id-item');
-            var qty = $('#qty_' + id_item).val();
-            qty++;
-            $('#qty_' + id_item).val(qty);
-            $.ajax({
-                type: 'POST',
-                url: 'cart_update.php',
-                data: {
-                    id_item: id_item,
-                    qty: qty
-                },
-                dataType: 'json',
-                success: function(response) {
-                    if (!response.error) {
-                        getCart();
-                        getTotal();
-                    }
-                }
-            });
-        });
     </script>
 </body>
 

@@ -225,27 +225,30 @@
                         foreach ($stmt as $row) {
                     ?>
                             <div class="col-md-4">
-                                <div class="product py-4 bg-light">
-                                    <!-- <span class="off bg-success">-25% OFF</span> -->
-                                    <div class="text-center">
-                                        <img src="uploads/<?php echo $row['pictures'] ?>" width="200" height="200">
-                                    </div>
-                                    <div class="about text-center">
-                                        <h5><?php echo $row['title'] ?></h5>
-                                        <span>Rs. <?php echo $row['price'] ?></span>
-                                    </div>
-                                    <div class="cart-button mt-3 px-2 d-flex justify-content-between align-items-center">
-                                        <button class="btn btn-primary text-uppercase">Add to cart</button>
-                                        <div class="add">
-                                            <span class="product_fav">
-                                                <i class="fa fa-heart-o"></i>
-                                            </span>
-                                            <span class="product_fav">
-                                                <i class="fa fa-opencart"></i>
-                                            </span>
+                                <a class="" href="item.php?item_id=<?php echo $row['item_id'] ?>">
+                                    <div class="product py-4 bg-light">
+                                        <!-- <span class="off bg-success">-25% OFF</span> -->
+                                        <div class="text-center">
+                                            <img src="uploads/<?php echo $row['pictures'] ?>" width="200" height="200">
+                                        </div>
+                                        <div class="about text-center">
+                                            <h5><?php echo $row['title'] ?></h5>
+                                            <span>Rs. <?php echo $row['price'] ?></span>
+                                        </div>
+                                        <div class="cart-button mt-3 px-2 d-flex justify-content-between align-items-center">
+                                            <!-- <button class="btn btn-primary text-uppercase">Add to cart</button> -->
+                                            <div class="add">
+                                                <span class="product_fav">
+                                                    <i class="fa fa-heart-o"></i>
+                                                </span>
+                                                <span class="product_fav">
+                                                    <i class="fa fa-opencart"></i>
+                                                </span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                </a>
+
                             </div>
 
                     <?php

@@ -4,18 +4,18 @@
 	$conn = $pdo->open();
 
 	$output = array('error'=>false);
-	$id_item = $_POST['id_item'];
-	$id_user = $_POST['id_user'];
-
+	
 	if(isset($_SESSION['user'])){
+		$id_item = $_POST['id_item'];
+		$id_user = $_SESSION['user'];
+
 		try{
-			$stmt = $conn->prepare("DELETE FROM cart WHERE user_id=:id_user AND item_id=:id_item");
+			$stmt = $conn->prepare("DELETE FROM cart WHERE `user_id`=:id_user AND `item_id`=:id_item");
 			$result = $stmt->execute(['id_user'=>$id_user, 'id_item' => $id_item]);
 			if($result == TRUE){
 				$output['message'] = 'Deleted';
 			}
 			$output['message'] = 'Cannot find this item.';
-			
 		}
 		catch(PDOException $e){
 			$output['message'] = $e->getMessage();
