@@ -29,7 +29,7 @@ function formatDate($date)
             <h1>Product List</h1>
 
             <div class="d-flex justify-content-between align-items-center">
-                <a href="#addnew" data-toggle="modal" class="btn btn-primary btn-flat d-inline-block" id="addproduct"><i class="fa fa-plus text-center"></i> New</a>
+                <a href="product_add.php" data-toggle="modal" class="btn btn-primary btn-flat d-inline-block" id="addproduct"><i class="fa fa-plus text-center"></i> New</a>
                 <form class="d-flex align-items-center">
                     <label class="form-label select-label">Category: </label>
                     <select class="form-control form-select" id="select_category">
@@ -87,8 +87,8 @@ function formatDate($date)
                                 <td>LKR ' . number_format($row['price'], 3) . '</td>
                                 <td>LKR ' . $row['avail_stock'] . '</td>
                                 <td>
-                                    <button class="btn btn-success btn-sm px-3 full-model edit btn-flat" data-id="' . $row['item_id'] . '" data-ripple-color="dark" data-mdb-toggle="modal" data-mdb-target="#"><i class="fa fa-edit"></i> Edit</button>
-                                    <button class="btn btn-danger btn-sm px-3 full-model delete btn-flat" data-id="' . $row['item_id'] . '" data-ripple-color="dark" data-mdb-toggle="modal" data-mdb-target="#"><i class="fa fa-trash"></i> Delete</button>
+                                    <a href="product_edit.php?item_id='. $row['item_id'] .'" class="btn btn-success btn-sm px-3 full-model edit btn-flat" data-id="' . $row['item_id'] . '" data-ripple-color="dark" data-mdb-toggle="" data-mdb-target="#"><i class="fa fa-edit"></i> Edit</a>
+                                    <a class="btn btn-danger btn-sm px-3 full-model delete btn-flat" data-id="' . $row['item_id'] . '" data-ripple-color="dark" data-mdb-toggle="modal" data-mdb-target="#"><i class="fa fa-trash"></i> Delete</a>
                                 </td>
                             </tr>';
                         }
@@ -139,39 +139,39 @@ function formatDate($date)
 
 
 <script>
-    $(function() {
-        $(document).on('click', '.full-model', function(e) {
-            e.preventDefault();
-            $('#order_details_model').modal('show');
-            var id = $(this).data('id');
-            $.ajax({
-                type: 'POST',
-                url: 'data_order_details.php',
-                data: {
-                    id: id
-                },
-                dataType: 'json',
-                success: function(response) {
-                    $('#detail').prepend(response.list);
-                    $('#total').html(response.total);
-                }
-            });
-        });
+    // $(function() {
+    //     $(document).on('click', '.full-model', function(e) {
+    //         e.preventDefault();
+    //         $('#order_details_model').modal('show');
+    //         var id = $(this).data('id');
+    //         $.ajax({
+    //             type: 'POST',
+    //             url: 'data_order_details.php',
+    //             data: {
+    //                 id: id
+    //             },
+    //             dataType: 'json',
+    //             success: function(response) {
+    //                 $('#detail').prepend(response.list);
+    //                 $('#total').html(response.total);
+    //             }
+    //         });
+    //     });
 
-        $("#order_details_model").on("hidden.bs.modal", function() {
-            $('.prepend_items').remove();
-        });
-    });
+    //     $("#order_details_model").on("hidden.bs.modal", function() {
+    //         $('.prepend_items').remove();
+    //     });
+    // });
     
     
-    document.querySelector('#select_category').addEventListener('change', function(){
-        let val = this.value;
-        if (val == 0) {
-            window.location.replace('products.php');
-        } else {
-            window.location.replace('products.php?category=' + val);
-        }
-    })
+    // document.querySelector('#select_category').addEventListener('change', function(){
+    //     let val = this.value;
+    //     if (val == 0) {
+    //         window.location.replace('products.php');
+    //     } else {
+    //         window.location.replace('products.php?category=' + val);
+    //     }
+    // })
     // $('#select_category').change(function() {
     //     var val = $(this).val();
     //     if (val == 0) {
