@@ -87,7 +87,7 @@ function formatDate($date)
                                 <td>LKR ' . number_format($row['price'], 3) . '</td>
                                 <td>LKR ' . $row['avail_stock'] . '</td>
                                 <td>
-                                    <a href="product_edit.php?item_id='. $row['item_id'] .'" class="btn btn-success btn-sm px-3 full-model edit btn-flat" data-id="' . $row['item_id'] . '" data-ripple-color="dark" data-mdb-toggle="" data-mdb-target="#"><i class="fa fa-edit"></i> Edit</a>
+                                    <a href="product_edit.php?item_id=' . $row['item_id'] . '" class="btn btn-success btn-sm px-3 full-model edit btn-flat" data-id="' . $row['item_id'] . '" data-ripple-color="dark" data-mdb-toggle="" data-mdb-target="#"><i class="fa fa-edit"></i> Edit</a>
                                     <a class="btn btn-danger btn-sm px-3 full-model delete btn-flat" data-id="' . $row['item_id'] . '" data-ripple-color="dark" data-mdb-toggle="modal" data-mdb-target="#"><i class="fa fa-trash"></i> Delete</a>
                                 </td>
                             </tr>';
@@ -162,24 +162,24 @@ function formatDate($date)
     //         $('.prepend_items').remove();
     //     });
     // });
-    
-    
-    // document.querySelector('#select_category').addEventListener('change', function(){
-    //     let val = this.value;
-    //     if (val == 0) {
-    //         window.location.replace('products.php');
-    //     } else {
-    //         window.location.replace('products.php?category=' + val);
-    //     }
-    // })
-    // $('#select_category').change(function() {
-    //     var val = $(this).val();
-    //     if (val == 0) {
-    //         window.location = 'products.php';
-    //     } else {
-    //         window.location = 'products.php?category=' + val;
-    //     }
-    // });
+
+
+    document.querySelector('#select_category').addEventListener('change', function() {
+        let val = this.value;
+        if (val == 0) {
+            window.location.replace('products.php');
+        } else {
+            window.location.replace('products.php?category=' + val);
+        }
+    })
+    $('#select_category').change(function() {
+        var val = $(this).val();
+        if (val == 0) {
+            window.location = 'products.php';
+        } else {
+            window.location = 'products.php?category=' + val;
+        }
+    });
 </script>
 </body>
 

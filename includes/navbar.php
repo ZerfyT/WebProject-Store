@@ -11,8 +11,8 @@
             <!-- Collapsible wrapper -->
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Navbar brand -->
-                <a class="navbar-brand mt-2 mt-lg-0" href="index.php">
-                    <img src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp" height="15" alt="MDB Logo" loading="lazy" />
+                <a class="navbar-brand mt-2 mt-lg-0 text-light fw-bold" href="index.php">LOGO
+                    <!-- <img src="images/logo.webp" height="15" alt="MDB Logo" loading="lazy" /> -->
                 </a>
                 <!-- Left links -->
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -44,6 +44,7 @@
                                 </li>
                             <?php
                             }
+                            $pdo->close();
                             ?>
 
                         </ul>
@@ -96,13 +97,13 @@
                 } else {
                 ?>
                     <!-- <div class="d-flex align-items-center"> -->
-                    <button type="button" class="btn btn-link px-3">
-                        <a class="text-light" href="signin.php" role="button">Login</a>
+                    <!-- <button type="button" class="btn btn-link px-3"> -->
+                    <a class="btn btn-link px-3 text-light" href="signin.php" role="button">Login</a>
 
-                    </button>
-                    <button type="button" class="btn btn-primary">
-                        <a class="text-light" href="signup.php" role="button">Sign up</a>
-                    </button>
+                    <!-- </button> -->
+                    <!-- <button type="button" class="btn btn-primary"> -->
+                    <a class="btn btn-primary text-light" href="signup.php" role="button">Sign up</a>
+                    <!-- </button> -->
 
 
 
