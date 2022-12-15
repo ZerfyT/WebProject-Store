@@ -1,20 +1,21 @@
 <?php include 'includes/session.php'; ?>
 <?php include 'includes/header.php'; ?>
 
-<!-- bg-dark d-flex flex-column -->
-
 <body class="">
+
     <style>
-        .navbar {
+        header nav.navbar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
             /* --mdb-bg-opacity: 1; */
             /* background-color: transparent; */
         }
     </style>
-
+    
     <!-- Header - Navigation Bar -->
-    <?php
-    include "includes/navbar.php";
-    ?>
+    <?php include "includes/navbar.php"; ?>
 
     <!-- Carousel wrapper -->
     <div id="introCarousel" class="carousel slide carousel-fade shadow-2-strong" data-mdb-ride="carousel">
@@ -95,7 +96,7 @@
                 <div class="card">
                     <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light" data-mdb-ripple-color="light">
                         <img src="images/slide_6.jpg" class="w-100" />
-                        <a href="#!">
+                        <a href="#">
                             <div class="mask">
                                 <div class="d-flex justify-content-start align-items-end h-100">
                                     <h5><span class="badge bg-primary ms-2">New</span></h5>
@@ -107,7 +108,7 @@
                         </a>
                     </div>
                     <div class="card-body">
-                        <a href="" class="text-reset">
+                        <a href="#" class="text-reset">
                             <h5 class="card-title mb-3">Product name</h5>
                         </a>
                         <a href="" class="text-reset">

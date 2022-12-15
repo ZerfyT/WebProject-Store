@@ -15,10 +15,10 @@ if (isset($_POST['bt-edit'])) {
     // FILE UPLOADING
     $file_path = uploadImage();
 
-    $sql = "UPDATE `item` SET `title`='$p_title', `description`='$p_desc', `price`='$p_price', `avail_stock`='$p_qty', `pictures`='$file_path', `cat_id`='$p_cate' WHERE `item_id`='$item_id')";    
+    $sql = "UPDATE `item` SET `title`='$p_title', `description`='$p_desc', `price`='$p_price', `avail_stock`='$p_qty', `pictures`='$file_path', `cat_id`='$p_cate' WHERE `item_id`='$item_id';";    
     
     if(empty($file_path)){
-        $sql = "UPDATE `item` SET `title`='$p_title', `description`='$p_desc', `price`='$p_price', `avail_stock`='$p_qty', `cat_id='$p_cate' WHERE `item_id`='$item_id'`)";    
+        $sql = "UPDATE `item` SET `title`='$p_title', `description`='$p_desc', `price`='$p_price', `avail_stock`='$p_qty', `cat_id`='$p_cate' WHERE `item_id`='$item_id';";    
     }
 
     $conn = $pdo->open();

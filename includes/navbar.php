@@ -1,6 +1,6 @@
 <header>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-md navbar-light" style="z-index: 2000;">
+    <nav class="navbar navbar-expand-lg" style="z-index: 2000;">
         <!-- Container wrapper -->
         <div class="container-fluid">
             <!-- Toggle button -->
@@ -15,7 +15,7 @@
                     <!-- <img src="images/logo.webp" height="15" alt="MDB Logo" loading="lazy" /> -->
                 </a>
                 <!-- Left links -->
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav me-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="index.php">Dashboard</a>
                     </li>
@@ -107,7 +107,7 @@
 
 
 
-                    <!-- <button>
+                    <!-- <button>`
                             <a href="signup.php">Sign up</a>
                         </button> -->
                     <!-- </div> -->

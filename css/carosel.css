@@ -6,7 +6,7 @@
 	height: 100vh;
 }
 #introCarousel {
-	margin-top: -92.28px;
+	/* margin-top: -92.28px; */
 }
 
 .carousel-item:nth-child(1) {
@@ -32,13 +32,13 @@
 /* Height for devices larger than 576px */
 @media (min-width: 992px) {
 	#introCarousel {
-		margin-top: -58.59px;
+		/* margin-top: -58.59px; */
 	}
 	#introCarousel,
 	.carousel-inner,
 	.carousel-item,
 	.carousel-item.active {
-		height: 50vh;
+		height: 60vh;
 	}
 }
 

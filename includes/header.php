@@ -19,7 +19,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
 
     <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/navbar.css">
+    <!-- <link rel="stylesheet" href="css/search.css"> -->
     <link rel="stylesheet" href="css/carosel.css">
-    <link rel="stylesheet" href="css/search.css">
 
 </head>

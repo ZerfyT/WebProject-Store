@@ -80,7 +80,7 @@ function formatDate($date)
                                 <td scope="row">' . $row['item_id'] . '</td>
                                 <td>' . $row['title'] . '</td>
                                 <td>
-                                    <img src="' . $image . '" height="30px" width="30px">
+                                    <img src="' . $image . '" height="30px" width="30px" data-mdb-img="' . $image . '">
                                     <span class="pull-right"><a href="#edit_photo" class="photo" data-toggle="modal" data-id="' . $row['item_id'] . '"><i class="fa fa-edit"></i></a></span>
                                 </td>
                                 <td><a href="#description" data-toggle="modal" class="btn btn-info btn-sm btn-flat desc" data-id="' . $row['item_id'] . '"><i class="fa fa-search"></i> View</a></td>
@@ -101,6 +101,25 @@ function formatDate($date)
 
                 </tbody>
             </table>
+        </div>
+
+        <div class="bg-image hover-overlay ripple shadow-1-strong rounded" data-ripple-color="light">
+            <img src="" class="w-100" />
+            <a href="#!" data-mdb-toggle="modal" data-mdb-target="#imageModal" data-mdb-img="">
+                <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);">
+            </div>
+            </a>
+        </div>
+
+        <!-- Modal 1 -->
+        <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="exampleModal1Label" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="ratio ratio-16x9">
+                        <iframe src="" title="YouTube video" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
         </div>
 
 
