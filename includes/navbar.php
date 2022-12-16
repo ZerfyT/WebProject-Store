@@ -1,6 +1,6 @@
 <header>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg" style="z-index: 2000;">
+    <nav class="navbar navbar-expand-lg fixed-top" style="z-index: 2000;">
         <!-- Container wrapper -->
         <div class="container-fluid">
             <!-- Toggle button -->

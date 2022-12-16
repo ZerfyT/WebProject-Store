@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="resources/mdb5-6.0.1/css/mdb.min.css">
 
     <!-- Google Font -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap" />
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/navbar.css">
