@@ -1,22 +1,25 @@
 <?php
-include 'includes/conn.php';
+include_once 'includes/conn.php';
 session_start();
+
+$conn = $pdo->open();
 
 if (isset($_SESSION['admin'])) {
 	// header('location: admin/home.php');
-	$_SESSION['user-type'] = 1;
+	// $_SESSION['user-type'] = 1;
 }
-
-if (isset($_SESSION['user'])) {
-	$conn = $pdo->open();
+elseif (isset($_SESSION['user'])) {
 	try {
 		$stmt = $conn->prepare("SELECT * FROM user WHERE user_id=:id");
 		$stmt->execute(['id' => $_SESSION['user']]);
 		$user = $stmt->fetch();
-		$_SESSION['user-type'] = 0;
+		// $_SESSION['user-type'] = 0;
 	} catch (PDOException $e) {
-		echo "There is some problem in connection: " . $e->getMessage();
+		$_SESSION['error'] = "Invalide User: " . $e->getMessage();
 	}
 
 	$pdo->close();
+}
+else{
+
 }

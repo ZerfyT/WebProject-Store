@@ -1,7 +1,11 @@
 <?php include 'includes/session.php'; ?>
-<?php include 'includes/header.php'; ?>
 
-<body class="">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Hardware Store</title>
+    <?php include 'includes/header.php'; ?>
     <style>
         /* .t-products {
             background-image: linear-gradient(to right top, #5629c0, #5625cb, #5620d5, #551ae0, #5412eb);
@@ -107,13 +111,16 @@
             color: #fff
         } */
     </style>
+</head>
+
+<body>
 
     <!-- Header - Navigation Bar -->
     <?php include "includes/navbar_dark.php"; ?>
 
 
     <!-- Container -->
-    <div class="container-fluid my-4">
+    <div class="container-fluid my-5">
         <div class="row g-2">
             <!-- Left Side -->
             <div class="col-md-2">

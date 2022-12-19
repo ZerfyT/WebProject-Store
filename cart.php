@@ -1,4 +1,5 @@
 <?php include 'includes/session.php'; ?>
+
 <?php
 if (!isset($_SESSION['user'])) {
     header('location: signin.php');
@@ -6,10 +7,34 @@ if (!isset($_SESSION['user'])) {
 }
 ?>
 
-<?php include 'includes/header.php'; ?>
+<!DOCTYPE html>
+<html lang="en">
 
-<body class="">
+<head>
+    <title>Hardware Store</title>
+    <?php include 'includes/header.php'; ?>
+
     <style>
+        #cart-view .bg-image img {
+            object-fit: fill;
+            max-height: 150px;
+        }
+
+        #cart-view .bg-image .mask {
+            background-color: rgba(251, 251, 251, 0.2);
+        }
+
+        #cart-view .qty .form-outline {
+            /* width: fit-content; */
+            flex-grow: 0;
+            /* max-width: 200px; */
+        }
+
+        #cart-view .qty .form-outline {
+            width: max-content;
+            max-width: 75px;
+        }
+
         .gradient-custom {
 
             /* fallback for old browsers */
@@ -22,19 +47,21 @@ if (!isset($_SESSION['user'])) {
             /* background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1)) */
         }
     </style>
+</head>
+
+<body>
 
     <!-- Header - Navigation Bar -->
     <?php include "includes/navbar_dark.php"; ?>
 
 
     <!-- Container -->
-    <div class="container h-100 gradient-custom">
-        <!-- <section class=""> -->
-        <!-- <div class="container py-5"> -->
-        <div class="row d-flex justify-content-center my-4">
+    <div class="container h-100 py-5 gradient-custom">
+        <div class="row d-flex justify-content-center">
 
             <!-- Left Side -->
             <div class="col-md-8">
+
                 <!-- Cart Items -->
                 <div class="card mb-4">
                     <div class="card-header py-3">

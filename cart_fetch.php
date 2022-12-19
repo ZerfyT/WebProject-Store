@@ -1,6 +1,6 @@
 <?php
 	include 'includes/session.php';
-	$conn = $pdo->open();
+	// $conn = $pdo->open();
 
 	$output = array('list'=>'','count'=>0);
 
@@ -17,10 +17,10 @@
 					<div class="row">
 						<div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
 							<!-- Image -->
-							<div class="bg-image hover-overlay hover-zoom ripple rounded" data-mdb-ripple-color="light">
-								<img src="'. $image .'" class="w-100" alt="" style="object-fit: fill; max-height: 150px;" />
+							<div class="bg-image hover-overlay ripple rounded" data-mdb-ripple-color="light">
+								<img src="'. $image .'" class="w-100 img-fluid shadow-2-strong" alt="" />
 								<a href="#">
-									<div class="mask" style="background-color: rgba(251, 251, 251, 0.2)"></div>
+									<div class="mask"></div>
 								</a>
 							</div>
 							<!-- Image -->
@@ -30,7 +30,7 @@
 							<!-- Data -->
 							<p><strong>' . $title . '</strong></p>
 							<p>' . $row['description'] . '</p>
-							<button type="button" class="btn btn-primary btn-sm me-1 mb-2 bt-delete" data-mdb-toggle="tooltip" data-id-item="' . $row['item_id'] .'" title="Remove item">
+							<button type="button" class="btn btn-danger btn-sm me-1 mb-2 bt-delete" data-mdb-toggle="tooltip" data-id-item="' . $row['item_id'] .'" title="Remove item">
 								<i class="fas fa-trash"></i>
 							</button>
 							<!-- Data -->
@@ -38,7 +38,7 @@
 		
 						<div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
 							<!-- Quantity -->
-							<div class="d-flex mb-4" style="max-width: 300px">
+							<div class="qty d-flex mb-4 justify-content-start">
 								<button class="btn btn-primary px-3 me-2 minus" data-id-item="' . $row['item_id'] .'">
 									<i class="fas fa-minus"></i>
 								</button>
@@ -103,8 +103,5 @@
 	// 	}
 	// }
 
-	$pdo->close();
+	// $pdo->close();
 	echo json_encode($output);
-
-?>
-

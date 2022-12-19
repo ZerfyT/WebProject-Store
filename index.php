@@ -1,19 +1,24 @@
 <?php include 'includes/session.php'; ?>
-<?php include 'includes/header.php'; ?>
 
-<body class="">
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <title>Hardware Store</title>
+    <?php include 'includes/header.php'; ?>
     <style>
         header nav.navbar {
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
             /* --mdb-bg-opacity: 1; */
             /* background-color: transparent; */
         }
     </style>
-    
+</head>
+
+<body>
+
     <!-- Header - Navigation Bar -->
     <?php include "includes/navbar.php"; ?>
 
@@ -362,9 +367,31 @@
     </div>
 
 
+
     <?php include 'includes/footer.php'; ?>
 
     <?php include 'includes/scripts.php'; ?>
+
+
+    <?php
+    if (isset($_SESSION['error'])) {
+        // unset($_SESSION['error']);
+        echo "<div class='container alert alert-danger'>" . $_SESSION['error'] . "</div>";
+    }
+    if (isset($_SESSION['login-success'])) {
+        echo '<div class="alert alert-success alert-dismissible fade show" role="alert">Login Successfull
+            <button type="button" class="btn-close" data-mdb-dismiss="alert" aria-label="Close"></button>
+            </div>';
+        unset($_SESSION['login-success']);
+        // echo "<div class='container alert alert-danger'>Login Successfull</div>";
+    }
+    ?>
+    <!-- <div class="alert alert-warning alert-dismissible fade show alert-fixed" role="alert">
+        Login Successfull
+        <button type="button" class="btn-close" data-mdb-dismiss="alert" aria-label="Close"></button>
+    </div> -->
+
+
 </body>
 
 </html>

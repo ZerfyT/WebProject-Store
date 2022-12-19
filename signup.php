@@ -1,14 +1,26 @@
 <?php include 'includes/session.php'; ?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Hardware Store</title>
+    <?php include 'includes/header.php'; ?>
+    <style>
+    </style>
+</head>
 <?php
 if (isset($_SESSION['user'])) {
     header('location: cart_view.php');
 }
 
 ?>
-<?php include 'includes/header.php'; ?>
 
 <body class="hold-transition register-page">
-    <div class="register-box">
+    <!-- Header - Navigation Bar -->
+    <?php include "includes/navbar_dark.php"; ?>
+
+    <div class="container m-5 p-5 register-box d-flex justify-content-center">
         <?php
         if (isset($_SESSION['error'])) {
             echo "
@@ -28,7 +40,7 @@ if (isset($_SESSION['user'])) {
             unset($_SESSION['success']);
         }
         ?>
-        <div class="register-box-body">
+        <div class="register-box-body w-50">
             <p class="login-box-msg">Register a new membership</p>
 
             <form action="register.php" method="post">
@@ -70,6 +82,7 @@ if (isset($_SESSION['user'])) {
     </div>
 
     <?php include 'includes/scripts.php' ?>
+    <?php include 'includes/footer.php' ?>
 </body>
 
 </html>

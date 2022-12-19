@@ -1,10 +1,16 @@
 <?php include 'includes/session.php'; ?>
-<?php include 'includes/header.php'; ?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Hardware Store</title>
+    <?php include 'includes/header.php'; ?>
+    <style>
+    </style>
+</head>
 
 <body class="">
-    <style>
-
-    </style>
     <!-- Header - Navigation Bar -->
     <?php include "includes/navbar_dark.php"; ?>
 

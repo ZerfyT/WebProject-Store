@@ -5,10 +5,6 @@ if (isset($_POST['bt-login'])) {
 
   $conn = $pdo->open();
 
-  // if (empty($_POST['user-email'] || empty($_POST['user-passwd']))) {
-  //   $_SESSION['error'] = "Email or Password is Empty";
-  //   // header('location: signin.php');
-  // }
   $email = $_POST['user-email'];
   $password = $_POST['user-passwd'];
 
@@ -18,12 +14,16 @@ if (isset($_POST['bt-login'])) {
 
   if ($stmt->rowCount() > 0) {
     $row = $stmt->fetch();
+
     if (hash_equals($password, $row['password'])) {
       if ($row['ac_type'] == 1) {
         $_SESSION['admin'] = $row['user_id'];
+        $_SESSION['login-success'] = 1;
         header('location: admin/admin.php');
+
       } else if ($row['ac_type'] == 0) {
         $_SESSION['user'] = $row['user_id'];
+        $_SESSION['login-success'] = 1;
         header('location: index.php');
       }
     } else {
@@ -41,14 +41,20 @@ if (isset($_POST['bt-login'])) {
 // }
 ?>
 
-<?php include 'includes/header.php'; ?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Hardware Store</title>
+  <?php include 'includes/header.php'; ?>
+</head>
 
 <body class="d-flex flex-column justify-content-between g-3 w-100">
 
   <!-- Header - Navigation Bar -->
   <?php include "includes/navbar_dark.php"; ?>
 
-  <div class="container my-4">
+  <div class="container my-5 py-5">
     <div class="row justify-content-center">
       <div class="col-xl-5 col-md-8">
         <form method="post" class="bg-white  rounded-5 shadow-5-strong p-5">
