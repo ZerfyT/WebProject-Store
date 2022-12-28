@@ -17,7 +17,10 @@
 <link rel="stylesheet" href="resources/fontawesome-6.2.1/css/solid.min.css">
 
 <!-- Google Font -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap" />
+<!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap" /> -->
+<!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal&display=swap" rel="stylesheet"> -->
 
 <!-- Custom CSS -->
 <!-- <link rel="stylesheet" href="css/search.css"> -->

@@ -1,4 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap");
+/* @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900&display=swap'); */
+
+@font-face {
+	font-family: "Nunito";
+	src: url("resources/google-fonts/Nunito/Nunito-VariableFont_wght.ttf");
+	font-weight: 200 900;
+	font-stretch: 75% 125%;
+	/* font-style: italic; */
+}
+* {
+	font-family: "Nunito", sans-serif;
+}
 
 .alert {
 	/* position: absolute;
@@ -20,7 +31,7 @@
 }
 
 body {
-	font-family: "Nunito", sans-serif;
+	/* font-family: "Nunito", sans-serif; */
 	background: #f6f9ff;
 	color: #444444;
 }
@@ -53,13 +64,6 @@ header nav.navbar i {
 	font-size: 1.4rem;
 	color: var(--theme-text-light);
 }
-
-
-
-
-
-
-
 
 /* Light Backgrounds */
 .bg-primary-light {

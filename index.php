@@ -7,6 +7,7 @@
     <title>Hardware Store</title>
     <?php include 'includes/header.php'; ?>
     <style>
+
         header nav.navbar {
             position: absolute;
             top: 0;
@@ -38,7 +39,7 @@
                 <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
                     <div class="d-flex justify-content-center align-items-center h-100">
                         <div class="text-white text-center">
-                            <h1 class="mb-3">Building Maintenance</h1>
+                            <h1 class="fw-bolder">Building Maintenance</h1>
                             <!-- <h5 class="mb-4">Best & free guide of responsive web design</h5> -->
                             <a class="btn btn-outline-light btn-lg m-2" href="" role="button" rel="nofollow" target="_blank">View Products</a>
                             <!-- <a class="btn btn-outline-light btn-lg m-2" href="" target="_blank" role="button">Download MDB UI KIT</a> -->
@@ -52,7 +53,7 @@
                 <div class="mask" style="background-color: rgba(0, 0, 0, 0.4);">
                     <div class="d-flex justify-content-center align-items-center h-100">
                         <div class="text-white text-center">
-                            <h1>Fabricating And Machining</h1>
+                            <h1 class="fw-bolder">Fabricating And Machining</h1>
                             <a class="btn btn-outline-light btn-lg m-2" href="" role="button" rel="nofollow" target="_blank">View Products</a>
                         </div>
                     </div>
@@ -70,7 +71,7 @@
               ">
                     <div class="d-flex justify-content-center align-items-center h-100">
                         <div class="text-white text-center">
-                            <h1>Power Tools Accessories</h1>
+                            <h1 class="fw-bolder">Power Tools Accessories</h1>
                             <a class="btn btn-outline-light btn-lg m-2" href="" target="_blank" role="button">View Products</a>
                         </div>
                     </div>
