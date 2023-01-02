@@ -18,7 +18,7 @@ elseif (isset($_SESSION['user'])) {
 		$_SESSION['error'] = "Invalide User: " . $e->getMessage();
 	}
 
-	$pdo->close();
+	// $pdo->close();
 }
 else{
 

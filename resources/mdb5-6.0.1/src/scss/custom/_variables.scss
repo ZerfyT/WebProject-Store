@@ -1,1 +1,74 @@
 // Your custom variables
+
+// $white: #ffffff;
+
+// $theme-colors: (
+//     "light":      #dee6e6,
+//     "dark":       #000001,
+//     "primary":    #2c2d38,
+//     "secondary":  #095b88,
+//     "info":       #5491c1,
+//     "accent1":    #343245,
+//     "accent2":    #5a545b,
+//     "accent3":    #a0a2ab,
+//     "success":    #069758,
+//     "warning":    #dec808,
+//     "danger":     #eb1c03,
+// );
+
+// $theme-colors: (
+//     "light":      #dae5ea,
+//     "dark":       #33485e,
+//     "primary":    #845168,
+//     "secondary":  #e7436e,
+//     "info":       #00b1e1,
+//     "accent1":    #1073b7,
+//     "accent2":    #d3ccba,
+//     "accent3":    #0b1523,
+//     "success":    #00a772,
+//     "warning":    #d5d000,
+//     "danger":     #e33f00,
+// );
+
+// $theme-colors: (
+//     "light":      #c0b8e8,
+//     "dark":       #061d2e,
+//     "primary":    #0089ee,
+//     "secondary":  #9a979d,
+//     "info":       #3790c9,
+//     "accent1":    #4288b8,
+//     "accent2":    #c07974,
+//     "accent3":    #64abed,
+//     "success":    #00b968,
+//     "warning":    #ead000,
+//     "danger":     #fd0f00,
+// );
+
+// $primary: #06adc4 !default;
+// $secondary: #2cb8da !default;
+// $success: #00cc64 !default;
+// $danger: #ff2638 !default;
+// $warning: #f6d300 !default;
+// $info: #3ad1da !default;
+// $light: #ffd3d5 !default;
+// $dark: #06131c !default;
+
+$primary: #2d3a57 !default;
+$secondary: #ed5c52 !default;
+$success: #25b169 !default;
+$danger: #f71e12 !default;
+$warning: #e6ce23 !default;
+$info: #f9c95c !default;
+$light: #a1d8f3 !default;
+$dark: #090503 !default;
+
+$theme-colors: (
+    "light":      $light,
+    "dark":       $dark,
+    "primary":    $primary,
+    "secondary":  $secondary,
+    "info":       $info,
+    "success":    $success,
+    "warning":    $warning,
+    "danger":     $danger,
+);

@@ -10,20 +10,20 @@
 }
 
 .carousel-item:nth-child(1) {
-	background-image: url("../images/slide_1.jpg");
+	background-image: url("../images/slide_4.jpg");
 	/* background-image: url("https://mdbootstrap.com/img/Photos/Others/images/76.jpg"); */
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center center;
 }
 .carousel-item:nth-child(2) {
-	background-image: url("../images/slide_2.jpg");
+	background-image: url("../images/slide_5.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center center;
 }
 .carousel-item:nth-child(3) {
-	background-image: url("../images/slide_3.jpg");
+	background-image: url("../images/slide_6.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center center;
@@ -38,7 +38,7 @@
 	.carousel-inner,
 	.carousel-item,
 	.carousel-item.active {
-		height: 60vh;
+		height: 70vh;
 	}
 }
 

@@ -57,6 +57,7 @@ if (isset($_POST['bt-login'])) {
   <div class="container my-5 py-5">
     <div class="row justify-content-center">
       <div class="col-xl-5 col-md-8">
+        <h3 class="text-center m-4">LOGIN AS EXISTING CUSTOMER</h3>
         <form method="post" class="bg-white  rounded-5 shadow-5-strong p-5">
           <!-- Email input -->
           <div class="form-outline mb-4">
@@ -90,7 +91,7 @@ if (isset($_POST['bt-login'])) {
 
           <!-- Submit button -->
           <div class="text-lg-start pt-2">
-            <button type="submit" name="bt-login" class="btn btn-primary btn-block">Sign in</button>
+            <button type="submit" name="bt-login" class="btn btn-warning btn-block">Sign in</button>
             <p class="text-center small fw-bold mt-2 pt-1">Don't have an account? <a href="signup.php" class="link-danger">Register</a></p>
           </div>
 

@@ -1,39 +1,99 @@
-body {
-  background-color: #fbfbfb;
+@font-face {
+	font-family: "Rubik";
+	src: url("../../resources/google-fonts/Rubik/Rubik-VariableFont_wght.ttf");
+	/* src: url("../resources/google-fonts/Nunito/Nunito-VariableFont_wght.ttf"); */
+	font-weight: 200 900;
+	font-stretch: 75% 125%;
+	/* font-style: italic; */
 }
+
+body {
+	/* background-color: #fbfbfb; */
+	background-color: var(--mdb-theme-light);
+	font-family: "Rubik", sans-serif;
+}
+
 @media (min-width: 991.98px) {
-  main {
-    padding-left: 240px;
-  }
+	main {
+		padding-left: 240px;
+	}
+}
+
+.alert {
+	/* position: absolute;
+	top: 68px;
+	right: 12px; */
+	position: fixed;
+	z-index: 2000;
+	top: 68px;
+	right: 10px;
 }
 
 /* Sidebar */
 .sidebar {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  padding: 58px 0 0; /* Height of navbar */
-  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
-  width: 240px;
-  z-index: 600;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	padding: 58px 0 0; /* Height of navbar */
+	box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
+	width: 240px;
+	z-index: 600;
 }
 
 @media (max-width: 991.98px) {
-  .sidebar {
-    width: 100%;
-  }
+	.sidebar {
+		width: 100%;
+	}
 }
 .sidebar .active {
-  border-radius: 5px;
-  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+	border-radius: 5px;
+	box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
 }
 
 .sidebar-sticky {
-  position: relative;
-  top: 0;
-  height: calc(100vh - 48px);
-  padding-top: 0.5rem;
-  overflow-x: hidden;
-  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+	position: relative;
+	top: 0;
+	height: calc(100vh - 48px);
+	padding-top: 0.5rem;
+	overflow-x: hidden;
+	overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+.mt20 {
+	margin-top: 20px;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+/*chart style*/
+#legend ul {
+	list-style: none;
+}
+
+#legend ul li {
+	display: inline;
+	padding-left: 30px;
+	position: relative;
+	margin-bottom: 4px;
+	/* border-radius: 5px;*/
+	padding: 2px 8px 2px 28px;
+	font-size: 14px;
+	cursor: default;
+	-webkit-transition: background-color 200ms ease-in-out;
+	-moz-transition: background-color 200ms ease-in-out;
+	-o-transition: background-color 200ms ease-in-out;
+	transition: background-color 200ms ease-in-out;
+}
+
+#legend li span {
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 20px;
+	height: 100%;
+	/* border-radius: 5px;*/
 }

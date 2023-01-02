@@ -1,5 +1,14 @@
-<?php include 'includes/session.php'; ?>
-<?php include 'includes/header.php'; ?>
+<?php include_once 'includes/session.php'; ?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Store Admin</title>
+    <?php include_once 'includes/header.php'; ?>
+    <style>
+    </style>
+</head>
 
 
 <?php
@@ -18,12 +27,12 @@ if (isset($_POST['bt-add'])) {
     $sql = "INSERT INTO `item` (`title`, `description`, `price`, `avail_stock`, `pictures`, `cat_id`) 
     VALUES ('$p_title','$p_desc','$p_price','$p_qty','$file_path','$p_cate');";
 
-    $conn = $pdo->open();
+    // $conn = $pdo->open();
     $stmt = $conn->prepare($sql);
     if ($stmt->execute()) {
         $msg = "New Item Added.";
     }
-    $pdo->close();
+    // $pdo->close();
 }
 
 
@@ -52,13 +61,13 @@ function uploadImage()
 
 ?>
 
-<body class="">
+<body>
     <style>
 
     </style>
 
     <!-- Header - Navigation Bar -->
-    <?php include "includes/navbar.php"; ?>
+    <?php include_once "includes/navbar.php"; ?>
 
     <!-- Container -->
     <main style="margin-top: 58px">
@@ -113,12 +122,12 @@ function uploadImage()
                         <select name="i-cate" class="form-control form-select select-input w-50">
 
                             <?php
-                            $conn = $pdo->open();
+                            // $conn = $pdo->open();
                             $stmt = $conn->prepare("SELECT * FROM `category`");
                             $stmt->execute();
                             foreach ($stmt as $row) {
                             ?>
-                                <option value="1"><?php echo $row['cat_name']; ?></option>
+                            <option value="1"><?php echo $row['cat_name']; ?></option>
                             <?php
                             }
                             ?>
@@ -143,13 +152,9 @@ function uploadImage()
     <!-- Container -->
 
     <?php include 'includes/scripts.php'; ?>
-</body>
-
-</html>
 
 
-
-<script>
+    <script>
     // $(function() {
     //     $(document).on('click', '.full-model', function(e) {
     //         e.preventDefault();
@@ -173,7 +178,7 @@ function uploadImage()
     //         $('.prepend_items').remove();
     //     });
     // });
-</script>
+    </script>
 </body>
 
 </html>

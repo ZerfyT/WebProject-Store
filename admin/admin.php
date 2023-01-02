@@ -1,12 +1,18 @@
-<?php 
-include 'includes/session.php';
-include 'includes/header.php';
-// header('location: ../index.php');
-?>
+<?php include 'includes/session.php'; ?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Store Admin</title>
+  <?php include 'includes/header.php'; ?>
+  <style>
+  </style>
+</head>
 
 <body>
-  
-<?php include 'includes/navbar.php'; ?>
+
+  <?php include_once 'includes/navbar.php'; ?>
 
   <!--Main layout-->
   <main style="margin-top: 58px">
@@ -422,12 +428,15 @@ include 'includes/header.php';
       </section>
       <!--Section: Statistics with subtitles-->
     </div>
+    <?php include_once 'includes/footer.php'; ?>
+
   </main>
   <!--Main layout-->
 
 
-  <?php include 'includes/scripts.php'; ?>
+  <?php include_once 'includes/scripts.php'; ?>
   
+
 </body>
 
 </html>

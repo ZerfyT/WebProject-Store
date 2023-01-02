@@ -1,6 +1,14 @@
-<?php include 'includes/session.php'; ?>
-<?php include 'includes/header.php'; ?>
+<?php include_once 'includes/session.php'; ?>
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Store Admin</title>
+    <?php include_once 'includes/header.php'; ?>
+    <style>
+    </style>
+</head>
 <?php
 
 $msg = "";
@@ -15,18 +23,18 @@ if (isset($_POST['bt-edit'])) {
     // FILE UPLOADING
     $file_path = uploadImage();
 
-    $sql = "UPDATE `item` SET `title`='$p_title', `description`='$p_desc', `price`='$p_price', `avail_stock`='$p_qty', `pictures`='$file_path', `cat_id`='$p_cate' WHERE `item_id`='$item_id';";    
-    
-    if(empty($file_path)){
-        $sql = "UPDATE `item` SET `title`='$p_title', `description`='$p_desc', `price`='$p_price', `avail_stock`='$p_qty', `cat_id`='$p_cate' WHERE `item_id`='$item_id';";    
+    $sql = "UPDATE `item` SET `title`='$p_title', `description`='$p_desc', `price`='$p_price', `avail_stock`='$p_qty', `pictures`='$file_path', `cat_id`='$p_cate' WHERE `item_id`='$item_id';";
+
+    if (empty($file_path)) {
+        $sql = "UPDATE `item` SET `title`='$p_title', `description`='$p_desc', `price`='$p_price', `avail_stock`='$p_qty', `cat_id`='$p_cate' WHERE `item_id`='$item_id';";
     }
 
-    $conn = $pdo->open();
+    // $conn = $pdo->open();
     $stmt = $conn->prepare($sql);
     if ($stmt->execute()) {
         $msg = "Item Updated.";
     }
-    $pdo->close();
+    // $pdo->close();
 }
 
 
@@ -55,13 +63,10 @@ function uploadImage()
 
 ?>
 
-<body class="">
-    <style>
-
-    </style>
+<body>
 
     <!-- Header - Navigation Bar -->
-    <?php include "includes/navbar.php"; ?>
+    <?php include_once "includes/navbar.php"; ?>
 
     <!-- Container -->
     <main style="margin-top: 58px">
@@ -74,7 +79,7 @@ function uploadImage()
                 die();
             }
 
-            $conn = $pdo->open();
+            // $conn = $pdo->open();
             $item_id = $_GET['item_id'];
 
             $stmt = $conn->prepare("SELECT * FROM `item` WHERE `item_id`='$item_id'");
@@ -84,70 +89,77 @@ function uploadImage()
             ?>
 
 
-                <form class="" method="post" enctype="multipart/form-data">
-                    <!-- Title input -->
-                    <div class="form-outline mb-4">
-                        <input name="i-title" type="text" id="form4Example1" class="form-control" value="<?php echo $row['title'] ?>"/>
-                        <label class="form-label" for="form4Example1">Title</label>
+            <form class="" method="post" enctype="multipart/form-data">
+                <!-- Title input -->
+                <div class="form-outline mb-4">
+                    <input name="i-title" type="text" id="form4Example1" class="form-control"
+                        value="<?php echo $row['title'] ?>" />
+                    <label class="form-label" for="form4Example1">Title</label>
+                </div>
+
+                <!-- Description input -->
+                <div class="form-outline mb-4">
+                    <textarea name="i-desc" class="form-control" id="form4Example3"
+                        rows="4"><?php echo $row['description'] ?></textarea>
+                    <label class="form-label" for="form4Example3">Description</label>
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <!-- Price input -->
+                    <div class="form-outline mb-4 w-25">
+                        <input name="i-price" type="number" id="form4Example2" class="form-control"
+                            value="<?php echo $row['price'] ?>" />
+                        <label class="form-label" for="form4Example2">Price</label>
                     </div>
 
-                    <!-- Description input -->
-                    <div class="form-outline mb-4">
-                        <textarea name="i-desc" class="form-control" id="form4Example3" rows="4"><?php echo $row['description'] ?></textarea>
-                        <label class="form-label" for="form4Example3">Description</label>
+                    <!-- Stock input -->
+                    <div class="form-outline mb-4 w-25">
+                        <input name="i-stock" type="number" id="form4Example2" class="form-control"
+                            value="<?php echo $row['avail_stock'] ?>" />
+                        <label class="form-label" for="form4Example2">Stock</label>
                     </div>
 
-                    <div class="d-flex justify-content-between">
-                        <!-- Price input -->
-                        <div class="form-outline mb-4 w-25">
-                            <input name="i-price" type="number" id="form4Example2" class="form-control" value="<?php echo $row['price'] ?>"/>
-                            <label class="form-label" for="form4Example2">Price</label>
-                        </div>
+                </div>
 
-                        <!-- Stock input -->
-                        <div class="form-outline mb-4 w-25">
-                            <input name="i-stock" type="number" id="form4Example2" class="form-control" value="<?php echo $row['avail_stock'] ?>"/>
-                            <label class="form-label" for="form4Example2">Stock</label>
-                        </div>
+                <!-- File input -->
+                <div class="form-outline mb-4">
+                    <input name="i-image" type="file" class="form-control" id="customFile"
+                        value="<?php echo $row['pictures'] ?>" />
+                    <label class="form-label" for="customFile"></label>
+                </div>
 
+                <div class="d-flex justify-content-between mb-4">
+
+                    <!-- <div class="form-outline mb4"> -->
+                    <!-- <input class="form-control select-input active" type="text" role="listbox"> -->
+                    <!-- <input type="text" class="form-control select-input active" role="listbox"> -->
+                    <!-- </div> -->
+
+                    <div class="d-flex justify-content-between w-100">
+                        <!-- <input class="form-control select-input active" type="text">Example label</label><span class="select-arrow"></span> -->
+
+                        <select name="i-cate" class="form-control form-select select-input w-50">
+
+                            <?php
+                // $conn = $pdo->open();
+                $stmt2 = $conn->prepare("SELECT * FROM `category`");
+                $stmt2->execute();
+                foreach ($stmt2 as $row2) {
+                            ?>
+                            <option value="1" <?php if ($row['cat_id'] == $row2['cat_id'])
+                        echo 'selected="selected"'; ?>>
+                                <?php echo $row2['cat_name']; ?></option>
+                            <?php
+                }
+                            ?>
+                        </select>
+                        <!-- Submit button -->
+                        <button name="bt-edit" type="submit" class="btn btn-primary">Send</button>
                     </div>
 
-                    <!-- File input -->
-                    <div class="form-outline mb-4">
-                        <input name="i-image" type="file" class="form-control" id="customFile" value="<?php echo $row['pictures'] ?>"/>
-                        <label class="form-label" for="customFile"></label>
-                    </div>
+                </div>
 
-                    <div class="d-flex justify-content-between mb-4">
-
-                        <!-- <div class="form-outline mb4"> -->
-                        <!-- <input class="form-control select-input active" type="text" role="listbox"> -->
-                        <!-- <input type="text" class="form-control select-input active" role="listbox"> -->
-                        <!-- </div> -->
-
-                        <div class="d-flex justify-content-between w-100">
-                            <!-- <input class="form-control select-input active" type="text">Example label</label><span class="select-arrow"></span> -->
-
-                            <select name="i-cate" class="form-control form-select select-input w-50">
-
-                                <?php
-                                // $conn = $pdo->open();
-                                $stmt2 = $conn->prepare("SELECT * FROM `category`");
-                                $stmt2->execute();
-                                foreach ($stmt2 as $row2) {
-                                ?>
-                                    <option value="1" <?php if($row['cat_id']==$row2['cat_id']) echo 'selected="selected"'; ?>><?php echo $row2['cat_name']; ?></option>
-                                <?php
-                                }
-                                ?>
-                            </select>
-                            <!-- Submit button -->
-                            <button name="bt-edit" type="submit" class="btn btn-primary">Send</button>
-                        </div>
-
-                    </div>
-
-                </form>
+            </form>
 
             <?php
             }
@@ -163,11 +175,7 @@ function uploadImage()
     </main>
     <!-- Container -->
 
-    <?php include 'includes/scripts.php'; ?>
-</body>
-
-</html>
-
+    <?php include_once 'includes/scripts.php'; ?>
 
 
 <script>

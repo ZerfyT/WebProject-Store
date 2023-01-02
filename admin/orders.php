@@ -1,5 +1,14 @@
 <?php include 'includes/session.php'; ?>
-<?php include 'includes/header.php'; ?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Store Admin</title>
+  <?php include 'includes/header.php'; ?>
+  <style>
+  </style>
+</head>
 
 <?php
 function formatDate($date)
@@ -10,13 +19,9 @@ function formatDate($date)
 
 ?>
 
-<body class="">
-  <style>
-
-  </style>
-
+<body>
   <!-- Header - Navigation Bar -->
-  <?php include "includes/navbar.php"; ?>
+  <?php include_once "includes/navbar.php"; ?>
 
   <!-- Container -->
   <main style="margin-top: 58px">
@@ -36,8 +41,8 @@ function formatDate($date)
         <tbody>
 
           <?php
-          $conn = $pdo->open();
-
+          // $conn = $pdo->open();
+          
           try {
             $stmt = $conn->prepare("SELECT `user_order`.`order_id` AS o_id,`user_order`.`order_date` AS o_date,`user`.`full_name` AS o_name FROM `user_order` INNER JOIN `user`ON `user_order`.`user_id`=`user`.`user_id` ORDER BY `order_date`");
             $stmt->execute();
@@ -51,7 +56,7 @@ function formatDate($date)
               }
 
               echo
-              '<tr>
+                '<tr>
                 <td scope="row">' . $row['o_id'] . '</td>
                 <td>' . formatDate(($row['o_date'])) . '</td>
                 <td>' . $row['o_name'] . '</td>
@@ -65,7 +70,7 @@ function formatDate($date)
             echo $e->getMessage();
           }
 
-          $pdo->close();
+          // $pdo->close();
           ?>
 
         </tbody>
@@ -76,38 +81,33 @@ function formatDate($date)
   </main>
   <!-- Container -->
 
-  <?php include 'includes/scripts.php'; ?>
-</body>
+  <?php include_once 'includes/scripts.php'; ?>
 
-</html>
+  <script>
+    $(function () {
+      $(document).on('click', '.full-model', function (e) {
+        e.preventDefault();
+        $('#order_details_model').modal('show');
+        var id = $(this).data('id');
+        $.ajax({
+          type: 'POST',
+          url: 'data_order_details.php',
+          data: {
+            id: id
+          },
+          dataType: 'json',
+          success: function (response) {
+            $('#detail').prepend(response.list);
+            $('#total').html(response.total);
+          }
+        });
+      });
 
-
-
-<script>
-  $(function() {
-    $(document).on('click', '.full-model', function(e) {
-      e.preventDefault();
-      $('#order_details_model').modal('show');
-      var id = $(this).data('id');
-      $.ajax({
-        type: 'POST',
-        url: 'data_order_details.php',
-        data: {
-          id: id
-        },
-        dataType: 'json',
-        success: function(response) {
-          $('#detail').prepend(response.list);
-          $('#total').html(response.total);
-        }
+      $("#order_details_model").on("hidden.bs.modal", function () {
+        $('.prepend_items').remove();
       });
     });
-
-    $("#order_details_model").on("hidden.bs.modal", function() {
-      $('.prepend_items').remove();
-    });
-  });
-</script>
+  </script>
 </body>
 
 </html>

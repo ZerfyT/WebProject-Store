@@ -1,0 +1,17 @@
+$white: #ffffff;
+
+$theme-colors: (
+    "light":      #dae5ea,
+    "dark":       #33485e,
+    "primary":    #845168,
+    "secondary":  #e7436e,
+    "info":       #00b1e1,
+    "accent1":    #1073b7,
+    "accent2":    #d3ccba,
+    "accent3":    #0b1523,
+    "success":    #00a772,
+    "warning":    #d5d000,
+    "danger":     #e33f00,
+);
+
+@import url(../resources/mdb5-6.0.1/css/mdb.min.css);

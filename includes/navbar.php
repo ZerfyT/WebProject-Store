@@ -10,7 +10,7 @@
             <!-- Collapsible wrapper -->
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Navbar brand -->
-                <a class="navbar-brand mt-2 mt-lg-0 text-light fw-bold" href="index.php">LOGO
+                <a class="navbar-brand mt-2 mt-lg-0 text-warning fw-bold" href="index.php">LOGO
                     <!-- <img src="images/logo.webp" height="15" alt="MDB Logo" loading="lazy" /> -->
                 </a>
                 <!-- Left links -->
@@ -54,9 +54,9 @@
 
                 <!-- Search -->
                 <form action="search.php" method="get" class="collapse d-flex input-group w-auto ">
-                    <input type="search" name="input-search" class="form-control rounded text-light" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                    <input type="search" name="input-search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
                     <span class="input-group-text border-0" id="search-addon">
-                        <i class="fas fa-search"></i>
+                        <i class="fas fa-search text-white"></i>
                     </span>
                 </form>
             </div>
@@ -69,7 +69,7 @@
                 <!-- Icon -->
                 <div class="cart">
                     <a class="link-secondary mx-3" href="cart.php">
-                        <i class="fas fa-shopping-cart"></i>
+                        <i class="fas fa-shopping-cart text-white"></i>
                     </a>
                 </div>
 
@@ -101,13 +101,13 @@
                     <!-- <div class="d-flex align-items-center"> -->
                     <!-- <button type="button" class="btn btn-link px-3"> -->
                     <div class="sign-btn">
-                        <a class="btn btn-outline-light fw-bolder" data-mdb-ripple-color="light" href="signin.php" role="button">Sign In</a>
+                        <a class="btn btn-outline-white fw-bolder" data-mdb-ripple-color="light" href="signin.php" role="button">Sign In</a>
 
                     </div>
 
                     <!-- </button> -->
                     <!-- <button type="button" class="btn btn-primary"> -->
-                    <!-- <a class="btn btn-tertiary text-light mx-2 p-2 fw-bold" data-mdb-ripple-color="light" href="signup.php" role="button"> -->
+                    <!-- <a class="btn btn-tertiary text-white mx-2 p-2 fw-bold" data-mdb-ripple-color="light" href="signup.php" role="button"> -->
                     <!-- <i class="fa-regular fa-user me-2"></i> -->
                     <!-- SignUp -->
                     <!-- </a> -->

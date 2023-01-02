@@ -7,8 +7,9 @@
 <!-- Bootswatch CSS v5.2.2 -->
 <!-- <link rel="stylesheet" href="resources/bootswatch-5.2.2/zephyr/bootstrap.min.css"> -->
 
+
 <!-- MDB5 Bootstrap CSS v6.0.1 -->
-<link rel="stylesheet" href="resources/mdb5-6.0.1/css/mdb.min.css">
+<link rel="stylesheet" href="resources/mdb5-6.0.1/src/scss/mdb.free.css">
 
 <!-- Font Awesome v6.2.1 Free -->
 <link rel="stylesheet" href="resources/fontawesome-6.2.1/css/fontawesome.min.css">
@@ -25,5 +26,4 @@
 <!-- Custom CSS -->
 <!-- <link rel="stylesheet" href="css/search.css"> -->
 <link rel="stylesheet" href="css/carosel.css">
-
 <link rel="stylesheet" href="css/styles.css">

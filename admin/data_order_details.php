@@ -1,9 +1,9 @@
 <?php
-	include 'includes/session.php';
+	include_once 'includes/session.php';
 
 	$id = $_POST['id'];
 
-	$conn = $pdo->open();
+	// $conn = $pdo->open();
 
 	$output = array('list'=>'');
 
@@ -31,5 +31,5 @@
 	}
 	
 	$output['total'] = '<b>LKR '.number_format($total, 2).'<b>';
-	$pdo->close();
+	// $pdo->close();
 	echo json_encode($output);

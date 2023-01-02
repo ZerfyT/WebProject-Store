@@ -1,36 +1,15 @@
-<footer class="bg-dark text-center text-white">
+<footer class="bg-dark text-white fs-7">
     <!-- Grid container -->
     <div class="container p-4">
-        <!-- Section: Social media -->
-        <section class="mb-4">
-            <!-- Facebook -->
-            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-facebook-f"></i></a>
-
-            <!-- Twitter -->
-            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-twitter"></i></a>
-
-            <!-- Google -->
-            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-google"></i></a>
-
-            <!-- Instagram -->
-            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-instagram"></i></a>
-
-            <!-- Linkedin -->
-            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-linkedin-in"></i></a>
-
-            <!-- Github -->
-            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-github"></i></a>
-        </section>
-        <!-- Section: Social media -->
 
         <!-- Section: Form -->
-        <section class="">
-            <form action="">
+        <section class="mb-4 mt-2">
+            <form method="post">
                 <!--Grid row-->
-                <div class="row d-flex justify-content-center">
+                <div class="row d-flex align-items-center justify-content-center">
                     <!--Grid column-->
                     <div class="col-auto">
-                        <p class="pt-2">
+                        <p class="mt-0 mb-0">
                             <strong>Sign up for our newsletter</strong>
                         </p>
                     </div>
@@ -39,7 +18,7 @@
                     <!--Grid column-->
                     <div class="col-md-5 col-12">
                         <!-- Email input -->
-                        <div class="form-outline form-white mb-4">
+                        <div class="form-outline form-white">
                             <input type="email" id="form5Example21" class="form-control" />
                             <label class="form-label" for="form5Example21">Email address</label>
                         </div>
@@ -49,7 +28,7 @@
                     <!--Grid column-->
                     <div class="col-auto">
                         <!-- Submit button -->
-                        <button type="submit" class="btn btn-outline-light mb-4">
+                        <button type="submit" class="btn btn-outline-light">
                             Subscribe
                         </button>
                     </div>
@@ -71,14 +50,15 @@
         <!-- Section: Text -->
 
         <!-- Section: Links -->
-        <section class="">
+        <section>
             <!--Grid row-->
             <div class="row">
                 <!--Grid column-->
                 <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
                     <h5 class="text-uppercase">ABOUT US</h5>
 
-                    <p class="text-start">Misar Trading Co. LLC is one of the leading importers of Building Materials, Hardware, Mechanical, Electrical and Plumbing Materials in the UAE.</p>
+                    <p>Liyanage Trading Co. LLC is one of the leading importers of Building Materials, Hardware,
+                        Mechanical, Electrical and Plumbing Materials in the SL.</p>
                 </div>
                 <!--Grid column-->
 
@@ -86,7 +66,7 @@
                 <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
                     <h5 class="text-uppercase">POLICY INFO</h5>
 
-                    <ul class="list-unstyled mb-0">
+                    <ul class="list-unstyled mb-0" style="padding-left: 0;">
                         <li>
                             <a href="#!" class="text-white">Privacy Policy</a>
                         </li>
@@ -152,9 +132,26 @@
     <!-- Grid container -->
 
     <!-- Copyright -->
-    <div class="text-center p-1" style="background-color: rgba(0, 0, 0, 0.2);">
-        © 2022 Copyright:
-        <a class="text-white" href="https://mdbootstrap.com/">All prices are shown including VAT.</a>
-    </div>
+    <section class="d-flex p-1" style="background-color: rgba(0, 0, 0, 0.2);">
+        <div class="text-center me-auto">
+            © 2023 Copyright:
+            <a class="text-white">All prices are shown including VAT.</a>
+        </div>
+
+        <div class="">
+            <!-- Facebook -->
+            <a class="btn btn-outline-warning btn-floating m-1" href="#" role="button">
+                <i class=" fab fa-facebook-f"></i></a>
+
+            <!-- Twitter -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#" role="button"><i class="fab fa-twitter"></i></a>
+
+            <!-- Instagram -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#" role="button"><i
+                    class="fab fa-instagram"></i></a>
+        </div>
+
+    </section>
+
     <!-- Copyright -->
 </footer>

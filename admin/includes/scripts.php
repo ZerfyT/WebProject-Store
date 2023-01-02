@@ -1,4 +1,4 @@
-<script src="https://kit.fontawesome.com/80652781b5.js" crossorigin="anonymous"></script>
+<!-- <script src="https://kit.fontawesome.com/80652781b5.js" crossorigin="anonymous"></script> -->
 
 <!-- MDB5 6.0.1 -->
 <script type="text/javascript" src="../resources/mdb5-6.0.1/js/mdb.min.js"></script>
