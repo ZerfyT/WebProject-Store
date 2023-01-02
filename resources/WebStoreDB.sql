@@ -31,9 +31,10 @@ CREATE TABLE IF NOT EXISTS `cart` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table web_project_store.cart: ~0 rows (approximately)
+DELETE FROM `cart`;
 /*!40000 ALTER TABLE `cart` DISABLE KEYS */;
 INSERT INTO `cart` (`user_id`, `item_id`, `quantity`) VALUES
-	(1, 8, 1);
+	(1, 8, 3);
 /*!40000 ALTER TABLE `cart` ENABLE KEYS */;
 
 -- Dumping structure for table web_project_store.category
@@ -45,6 +46,7 @@ CREATE TABLE IF NOT EXISTS `category` (
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table web_project_store.category: ~8 rows (approximately)
+DELETE FROM `category`;
 /*!40000 ALTER TABLE `category` DISABLE KEYS */;
 INSERT INTO `category` (`cat_id`, `cat_name`) VALUES
 	(1, 'Power Tools'),
@@ -70,18 +72,21 @@ CREATE TABLE IF NOT EXISTS `item` (
   PRIMARY KEY (`item_id`),
   KEY `fk_cat_id` (`cat_id`),
   CONSTRAINT `fk_cat_id` FOREIGN KEY (`cat_id`) REFERENCES `category` (`cat_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table web_project_store.item: ~7 rows (approximately)
+-- Dumping data for table web_project_store.item: ~9 rows (approximately)
+DELETE FROM `item`;
 /*!40000 ALTER TABLE `item` DISABLE KEYS */;
 INSERT INTO `item` (`item_id`, `title`, `description`, `price`, `avail_stock`, `pictures`, `cat_id`) VALUES
-	(7, 'Hammer Drill', 'AED520 Stanely Hammer Drill 720W', 300.000, 100, '1669642819.jpg', 1),
+	(7, 'Hammer Drill', 'AED520 Stanely Hammer Drill 720W', 300.000, 100, '0ba761b8a8b7f3710b4b4175f88dc4e3.png', 1),
 	(8, 'Hammer Drill Low', 'Stanely Hammer Drill', 200.000, 100, '1669642819.jpg', 1),
-	(9, 'Angle Grinder', 'Bosch Angle Grinder 9 Inch GWS 20-230', 450.000, 80, '1669642819.jpg', 1),
+	(9, 'Angle Grinder 9 Inch', 'BOSCH GWS 20-230 Angle Grinder 9 Inch\r\nIt is the compact and lightweight tool with a Powerful 2000 W motor and having Armoured coils that protect the motor against sharp grinding dust ensures a long lifetime.', 6500.000, 80, 'd88dd6defed83cbe4a6a0ff8f31eb3b3.jpeg', 1),
 	(10, 'Universal Helmet', 'Vaultex Universal helmet Safety Ear Muffs Yellow', 150.000, 250, '1669642819.jpg', 7),
 	(11, 'Universal Helmet 2', 'Vaultex Universal helmet Safety Ear Muffs Yellow', 170.000, 250, '1669642819.jpg', 7),
 	(13, 'Hand Shover 2', 'Thsid ', 450.000, 1000, 'bd2d166e9e1bd59abdac5acb072bac33.jpg', 1),
-	(14, 'Hand Shover', 'Thsid sfs osfsf sfksfs sfsmf sf fsfssssssssssssssssss sfssssss ggggggggggggggggggggggggggggggggggg gddddddddddddddddd', 45.000, 1000, '', 1);
+	(14, 'Hand Shover', 'Thsid sfs osfsf sfksfs sfsmf sf fsfssssssssssssssssss sfssssss ggggggggggggggggggggggggggggggggggg gddddddddddddddddd', 45.000, 1000, '', 1),
+	(18, 'TLM99 Laser Distance Measurer', 'STANLEY STHT1-77138 TLM99 Laser Distance Measurer.\r\nStanley TLM99 is the 100 ft./ 30Mtrs Laser Distance Measure which allows one person to take measurements without assistance.', 22500.000, 100, '48d21598f7d411a0d7af7c6e86e4c23a.jpg', 1),
+	(19, 'NEDO DISTO™ D510 Set 705575', 'NEDO DISTO™ D510 Set 705575\r\nThe D510 can handle many types of measurement tasks that AEC professionals regularly need to complete. It covers the basics but also includes more advanced features, like Smart Horizontal and Height Tracking. And it excels at complex measurements such as our Trapezium Function, which allows you to measure the slope, length, and area of a roof from one location. ', 210000.000, 0, 'e59efb969d1fe0d96f2fb66c59a41255.jpeg', 1);
 /*!40000 ALTER TABLE `item` ENABLE KEYS */;
 
 -- Dumping structure for table web_project_store.order_details
@@ -97,30 +102,12 @@ CREATE TABLE IF NOT EXISTS `order_details` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table web_project_store.order_details: ~2 rows (approximately)
+DELETE FROM `order_details`;
 /*!40000 ALTER TABLE `order_details` DISABLE KEYS */;
 INSERT INTO `order_details` (`order_id`, `item_id`, `quantity`) VALUES
 	(1, 9, 2),
 	(2, 8, 3);
 /*!40000 ALTER TABLE `order_details` ENABLE KEYS */;
-
--- Dumping structure for table web_project_store.product
-DROP TABLE IF EXISTS `product`;
-CREATE TABLE IF NOT EXISTS `product` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `description` varchar(255) DEFAULT NULL,
-  `image` varchar(255) DEFAULT NULL,
-  `price` double DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
-
--- Dumping data for table web_project_store.product: ~4 rows (approximately)
-/*!40000 ALTER TABLE `product` DISABLE KEYS */;
-INSERT INTO `product` (`id`, `description`, `image`, `price`) VALUES
-	(1, 'iphone x', '1.png', 140000),
-	(2, 'iphone 11', '2.png', 160000),
-	(3, 'iphone xr', '3.png', 130000),
-	(4, 'iphone 7', '4.png', 70000);
-/*!40000 ALTER TABLE `product` ENABLE KEYS */;
 
 -- Dumping structure for table web_project_store.user
 DROP TABLE IF EXISTS `user`;
@@ -136,6 +123,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table web_project_store.user: ~3 rows (approximately)
+DELETE FROM `user`;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user` (`user_id`, `full_name`, `email`, `password`, `ac_type`, `tp_number`, `address`) VALUES
 	(1, 'nipun', 'abc@gmail.com', 'abc', 0, '097123', 'aaaa bbbbb cccccc'),
@@ -158,6 +146,7 @@ CREATE TABLE IF NOT EXISTS `user_order` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table web_project_store.user_order: ~2 rows (approximately)
+DELETE FROM `user_order`;
 /*!40000 ALTER TABLE `user_order` DISABLE KEYS */;
 INSERT INTO `user_order` (`order_id`, `user_id`, `order_date`) VALUES
 	(1, 1, '2022-12-06'),
