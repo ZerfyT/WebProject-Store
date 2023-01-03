@@ -28,48 +28,49 @@
         .type {
             background-color: #fff
         } */
-
+        /* 
         .card-item {}
 
         .product {
             padding: 10px;
-            /* background-color: #fff; */
+            background-color: #fff;
             border-radius: 5px;
             position: relative;
             box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.1);
-            /* margin: 1px; */
+            margin: 1px;
         }
 
         .about span {
-            /* color: #5629c0; */
+            color: #5629c0;
             font-size: 16px;
         }
 
         .cart-button button {
             font-size: 12px;
-            /* color: #fff; */
-            /* background-color: #5629c0; */
+            color: #fff;
+            background-color: #5629c0;
             height: 38px;
         }
 
         .cart-button button:focus,
         button:active {
             font-size: 12px;
-            /* color: #fff; */
-            /* background-color: #5629c0; */
+            color: #fff;
+            background-color: #5629c0;
             box-shadow: none;
         }
 
         .product_fav i {
             line-height: 40px;
             /* color: #5629c0; */
-            font-size: 15px;
-        }
+        /* font-size: 15px; */
+        /* } */
 
-        .product_fav {
+        /* .product_fav {
             display: inline-block;
             width: 36px;
             height: 39px;
+            padding: 8px;
             background: #FFFFFF;
             box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
             border-radius: 11%;
@@ -84,16 +85,16 @@
         }
 
         .product_fav:hover {
-            /* background: #5629c0 */
+            background: #5629c0
         }
 
         .product_fav:hover i {
-            color: #333;
-        }
+            color: #333; 
+        } */
 
-        .about {
+        /* .about {
             margin-top: 12px;
-        }
+        } */
 
         /* .off {
             position: absolute;
@@ -127,16 +128,22 @@
 
                 <!-- Categories -->
                 <div class="t-products p-2">
-                    <h6 class="text-uppercase">Computer & Periferals</h6>
+                    <h6 class="text-uppercase">Top Categories</h6>
                     <div class="p-lists">
-                        <div class="d-flex justify-content-between mt-2"> <span>Laptops</span> <span>23</span> </div>
-                        <div class="d-flex justify-content-between mt-2"> <span>Desktops</span> <span>46</span> </div>
-                        <div class="d-flex justify-content-between mt-2"> <span>Monitors</span> <span>13</span> </div>
-                        <div class="d-flex justify-content-between mt-2"> <span>Mouse</span> <span>33</span> </div>
-                        <div class="d-flex justify-content-between mt-2"> <span>Keyboard</span> <span>12</span> </div>
-                        <div class="d-flex justify-content-between mt-2"> <span>Printer</span> <span>53</span> </div>
-                        <div class="d-flex justify-content-between mt-2"> <span>Mobiles</span> <span>203</span> </div>
-                        <div class="d-flex justify-content-between mt-2"> <span>CPU</span> <span>23</span> </div>
+                        <div class="d-flex justify-content-between mt-2"> <span>Tools</span> <span>23</span> </div>
+                        <div class="d-flex justify-content-between mt-2"> <span>Fixings</span> <span>13</span> </div>
+                        <div class="d-flex justify-content-between mt-2"> <span>Heating Systems</span> <span>46</span>
+                        </div>
+                        <div class="d-flex justify-content-between mt-2"> <span>Building Materials</span>
+                            <span>33</span>
+                        </div>
+                        <div class="d-flex justify-content-between mt-2"> <span>Electronic</span> <span>12</span> </div>
+                        <div class="d-flex justify-content-between mt-2"> <span>Chemicals</span> <span>53</span> </div>
+                        <div class="d-flex justify-content-between mt-2"> <span>Concrete Underlay</span>
+                            <span>203</span>
+                        </div>
+                        <div class="d-flex justify-content-between mt-2"> <span>Clean & Wash</span> <span>23</span>
+                        </div>
                     </div>
                 </div>
                 <!-- Categories -->
@@ -231,32 +238,32 @@
                         // echo '<div class="row row-cols-1 row-cols-md-3 g-4">';
                         foreach ($stmt as $row) {
                     ?>
-                            <div class="col-md-4">
-                                <a class="" href="item.php?item_id=<?php echo $row['item_id'] ?>">
-                                    <div class="product py-4 bg-light">
-                                        <!-- <span class="off bg-success">-25% OFF</span> -->
-                                        <div class="text-center">
-                                            <img src="uploads/<?php echo $row['pictures'] ?>" width="200" height="200">
-                                        </div>
-                                        <div class="about text-center">
-                                            <h5><?php echo $row['title'] ?></h5>
-                                            <span>Rs. <?php echo $row['price'] ?></span>
-                                        </div>
-                                        <div class="cart-button mt-3 px-2 d-flex justify-content-between align-items-center">
-                                            <!-- <button class="btn btn-primary text-uppercase">Add to cart</button> -->
-                                            <div class="add">
-                                                <span class="product_fav">
-                                                    <i class="fa fa-heart-o"></i>
-                                                </span>
-                                                <span class="product_fav">
-                                                    <i class="fa fa-opencart"></i>
-                                                </span>
-                                            </div>
-                                        </div>
+                    <div class="col-md-4">
+                        <a class="" href="item.php?item_id=<?php echo $row['item_id'] ?>">
+                            <div class="product py-4 bg-light">
+                                <!-- <span class="off bg-success">-25% OFF</span> -->
+                                <div class="text-center">
+                                    <img src="uploads/<?php echo $row['pictures'] ?>" width="200" height="200">
+                                </div>
+                                <div class="about text-center">
+                                    <h5><?php echo $row['title'] ?></h5>
+                                    <span>Rs. <?php echo $row['price'] ?></span>
+                                </div>
+                                <div class="cart-button mt-3 px-2 d-flex justify-content-between align-items-center">
+                                    <!-- <button class="btn btn-primary text-uppercase">Add to cart</button> -->
+                                    <div class="add">
+                                        <span class="product_fav">
+                                            <i class="fa-solid fa-heart text-danger"></i>
+                                        </span>
+                                        <span class="product_fav">
+                                            <i class="fa-solid fa-cart-shopping text-success"></i>
+                                        </span>
                                     </div>
-                                </a>
-
+                                </div>
                             </div>
+                        </a>
+
+                    </div>
 
                     <?php
                         }

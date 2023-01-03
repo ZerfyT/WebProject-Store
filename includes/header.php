@@ -16,6 +16,7 @@
 <link rel="stylesheet" href="resources/fontawesome-6.2.1/css/brands.min.css">
 <link rel="stylesheet" href="resources/fontawesome-6.2.1/css/regular.min.css">
 <link rel="stylesheet" href="resources/fontawesome-6.2.1/css/solid.min.css">
+<!-- <link rel="stylesheet" href="resources/fontawesome-6.2.1/css/all.min.css"> -->
 
 <!-- Google Font -->
 <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap" /> -->
