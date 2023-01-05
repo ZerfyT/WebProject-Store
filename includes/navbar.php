@@ -10,7 +10,7 @@
             <!-- Collapsible wrapper -->
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Navbar brand -->
-                <a class="navbar-brand mt-2 mt-lg-0 text-warning fw-bold" href="index.php">LOGO
+                <a class="navbar-brand mt-2 mt-lg-0 text-light fw-bold" href="index.php">LOGO
                     <!-- <img src="images/logo.webp" height="15" alt="MDB Logo" loading="lazy" /> -->
                 </a>
                 <!-- Left links -->
@@ -79,7 +79,7 @@
                 ?>
                     <div class="dropdown">
                         <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuAvatar" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                            <i class="fa-solid fa-user-gear mx-1"></i>
+                            <i class="fa-solid fa-user-gear mx-1 text-light"></i>
                             <!-- <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle" height="25" alt="Black and White Portrait of a Man" loading="lazy" /> -->
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">

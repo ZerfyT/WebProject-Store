@@ -129,7 +129,7 @@
                         <a href="" class="text-reset">
                             <p>Category</p>
                         </a>
-                        <h6 class="mb-3">$61.99</h6>
+                        <h6 class="mb-3">LKR 1700</h6>
                     </div>
                 </div>
             </div>
@@ -157,7 +157,7 @@
                         <a href="" class="text-reset">
                             <p>Category</p>
                         </a>
-                        <h6 class="mb-3">$61.99</h6>
+                        <h6 class="mb-3">LKR 1100</h6>
                     </div>
                 </div>
             </div>
@@ -185,7 +185,7 @@
                             <p>Category</p>
                         </a>
                         <h6 class="mb-3">
-                            <s>$61.99</s><strong class="ms-2 text-danger">$50.99</strong>
+                            <s>LKR 6500</s><strong class="ms-2 text-danger">LKR 4500</strong>
                         </h6>
                     </div>
                 </div>
@@ -220,7 +220,7 @@
                             <p>Category</p>
                         </a>
                         <h6 class="mb-3">
-                            <s>$61.99</s><strong class="ms-2 text-danger">$50.99</strong>
+                            <s>LKR 3200</s><strong class="ms-2 text-danger">LKR 1300</strong>
                         </h6>
                     </div>
                 </div>
@@ -247,7 +247,7 @@
                         <a href="" class="text-reset">
                             <p>Category</p>
                         </a>
-                        <h6 class="mb-3">$61.99</h6>
+                        <h6 class="mb-3">LKR 5620</h6>
                     </div>
                 </div>
             </div>
@@ -279,7 +279,7 @@
                             <p>Category</p>
                         </a>
                         <h6 class="mb-3">
-                            <s>$61.99</s><strong class="ms-2 text-danger">$50.99</strong>
+                            <s>LKR 4700</s><strong class="ms-2 text-danger">LKR 2600</strong>
                         </h6>
                     </div>
                 </div>

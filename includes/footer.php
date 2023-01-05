@@ -132,7 +132,7 @@
     <!-- Grid container -->
 
     <!-- Copyright -->
-    <section class="d-flex p-1" style="background-color: rgba(0, 0, 0, 0.2);">
+    <section class="d-flex p-1 align-items-center" style="background-color: rgba(0, 0, 0, 0.2);">
         <div class="text-center me-auto">
             © 2023 Copyright:
             <a class="text-white">All prices are shown including VAT.</a>
@@ -140,7 +140,7 @@
 
         <div class="">
             <!-- Facebook -->
-            <a class="btn btn-outline-warning btn-floating m-1" href="#" role="button">
+            <a class="btn btn-outline-light btn-floating m-1" href="#" role="button">
                 <i class=" fab fa-facebook-f"></i></a>
 
             <!-- Twitter -->
