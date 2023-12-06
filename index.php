@@ -43,10 +43,8 @@
                     <div class="d-flex justify-content-center align-items-center h-100">
                         <div class="text-white text-center">
                             <h1 class="fw-bolder">Building Maintenance</h1>
-                            <!-- <h5 class="mb-4">Best & free guide of responsive web design</h5> -->
                             <a class="btn btn-outline-white btn-lg m-2" href="" role="button" rel="nofollow"
                                 target="_blank">View Products</a>
-                            <!-- <a class="btn btn-outline-white btn-lg m-2" href="" target="_blank" role="button">Download MDB UI KIT</a> -->
                         </div>
                     </div>
                 </div>
@@ -193,7 +191,7 @@
         </div>
 
         <div class="row">
-            
+
             <div class="col-lg-4 col-md-12 mb-4">
                 <div class="card">
                     <div class="bg-image hover-zoom ripple" data-mdb-ripple-color="light">
@@ -390,11 +388,11 @@
 
 
     <?php
-    if (isset($_SESSION['error'])) {
+    if(isset($_SESSION['error'])) {
         // unset($_SESSION['error']);
-        echo "<div class='container alert alert-danger'>" . $_SESSION['error'] . "</div>";
+        echo "<div class='container alert alert-danger'>".$_SESSION['error']."</div>";
     }
-    if (isset($_SESSION['login-success'])) {
+    if(isset($_SESSION['login-success'])) {
         echo '<div class="alert alert-success alert-dismissible fade show" role="alert">Login Successfull
             <button type="button" class="btn-close" data-mdb-dismiss="alert" aria-label="Close"></button>
             </div>';

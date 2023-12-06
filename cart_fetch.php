@@ -8,10 +8,13 @@
 		try{
 			$stmt = $conn->prepare("SELECT * FROM `item` INNER JOIN `cart` ON `cart`.`item_id`=`item`.`item_id` WHERE  `cart`.`user_id`= :id");
 			$stmt->execute(['id'=>$user['user_id']]);
+			$total = 0;
 			foreach($stmt as $row){
 				$output['count']++;
 				$image = (!empty($row['pictures'])) ? 'uploads/'.$row['pictures'] : 'images/noimage.jpg';
 				$title = (strlen($row['title']) > 30) ? substr_replace($row['title'], '...', 27) : $row['title'];
+				$subtotal = $row['price'] * $row['quantity'];
+				$total += $subtotal;
 				$output['list'] .= 
 					'<!-- Single item -->
 					<div class="row">
@@ -64,6 +67,7 @@
 					<!-- Single item -->
 					<hr class="my-4" />';
 			}
+			$output['total'] = $total;
 		}
 		catch(PDOException $e){
 			$output['message'] = $e->getMessage();

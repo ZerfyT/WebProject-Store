@@ -1,6 +1,6 @@
 <?php
 
-$conn = mysqli_connect('localhost', 'root', '', 'db_fetchapi');
+$conn = mysqli_connect('localhost', 'root', 'root', 'db_fetchapi');
 if ($conn->connect_error) {
     die("Connection Error" . $conn->connect_error);
 } else {

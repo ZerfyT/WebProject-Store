@@ -4,7 +4,7 @@ Class Database{
  
 	private $server = "mysql:host=localhost;dbname=web_project_store";
 	private $username = "root";
-	private $password = "";
+	private $password = "root";
 	private $options  = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,);
 	protected $conn;
  	

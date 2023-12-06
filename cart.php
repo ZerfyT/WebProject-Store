@@ -133,35 +133,79 @@ if (!isset($_SESSION['user'])) {
     <?php include 'includes/scripts.php'; ?>
 
     <script>
-        getCart();
-        // const btDelete = document.querySelector('.bt-delete');
-        // btDelete.addEventListener('click', updateCart(this));
+        // $($(document).ready(function () {
+            getCart();
+            // const btDelete = document.querySelector('.bt-delete');
+            // btDelete.addEventListener('click', updateCart(this));
 
-        // async function updateCart(e) {
-        //     let id_item = e.data('id-item');
-        //     let id_user = e.data('id-user');
-        //     let formData = new FormData();
-        //     formData.append('id_item', id_item);
-        //     formData.append('id_user', id_user);
+            // async function updateCart(e) {
+            //     let id_item = e.data('id-item');
+            //     let id_user = e.data('id-user');
+            //     let formData = new FormData();
+            //     formData.append('id_item', id_item);
+            //     formData.append('id_user', id_user);
 
-        //     const data = fetch('cart_delete.php', {
-        //         method: 'POST',
-        //         body: formData
-        //     });
-        //     const response = await data.json();
-        //     document.querySelector('.card-body').innerHTML = response;
-        // }
+            //     const data = fetch('cart_delete.php', {
+            //         method: 'POST',
+            //         body: formData
+            //     });
+            //     const response = await data.json();
+            //     document.querySelector('.card-body').innerHTML = response;
+            // }
 
-        // Delete Cart Item
-        $(function() {
-            $(document).on('click', '.bt-delete', function(e) {
+            // Delete Cart Item
+            $(function() {
+                $(document).on('click', '.bt-delete', function(e) {
+                    e.preventDefault();
+                    var id_item = $(this).data('id-item');
+                    $.ajax({
+                        type: 'POST',
+                        url: 'cart_delete.php',
+                        data: {
+                            id_item: id_item
+                        },
+                        dataType: 'json',
+                        success: function(response) {
+                            if (!response.error) {
+                                getCart();
+                                getTotal();
+                            }
+                        }
+                    });
+                });
+            });
+
+            // Get Cart items from DB
+            async function getCart() {
+                //Use Fetch Api to fetch Cart Items
+                await fetch('cart_fetch.php', {
+                    method: 'POST'
+                })
+                    .then(responce => responce.json())
+                    .then(data => {
+                        $('#cart-view').html(data.list);
+                        $('.cart_count').html(data.count);
+                        $('#total').html('LKR ' + data.total);
+                        $('#net-total').html('LKR ' + data.total);
+                    });
+            }
+
+
+            // Quantity Minus
+            $(document).on('click', '.minus', function(e) {
                 e.preventDefault();
                 var id_item = $(this).data('id-item');
+                var qty = $('#qty_' + id_item).val();
+                if (qty > 1) {
+                    qty--;
+                }
+                $('#qty_' + id_item).val(qty);
                 $.ajax({
                     type: 'POST',
-                    url: 'cart_delete.php',
+                    url: 'cart_update.php',
                     data: {
-                        id_item: id_item
+                        id_item: id_item,
+                        qty: qty
                     },
                     dataType: 'json',
                     success: function(response) {
@@ -172,85 +216,31 @@ if (!isset($_SESSION['user'])) {
                     }
                 });
             });
-        });
 
-        // Get Cart items from DB
-        function getCart() {
-            $.ajax({
-                type: 'POST',
-                url: 'cart_fetch.php',
-                dataType: 'json',
-                success: function(response) {
-                    $('#cart-view').html(response.list);
-                    $('.cart_count').html(response.count);
-                    getTotal();
-                }
-            });
-        }
-
-        // Get Total in Cart
-        function getTotal() {
-            $.ajax({
-                type: 'POST',
-                url: 'cart_total.php',
-                dataType: 'json',
-                success: function(response) {
-                    $('#total').html('LKR ' + response);
-                    $('#net-total').html('LKR ' + response);
-                    // total = response;
-                }
-            });
-        }
-
-        // Quantity Minus
-        $(document).on('click', '.minus', function(e) {
-            e.preventDefault();
-            var id_item = $(this).data('id-item');
-            var qty = $('#qty_' + id_item).val();
-            if (qty > 1) {
-                qty--;
-            }
-            $('#qty_' + id_item).val(qty);
-            $.ajax({
-                type: 'POST',
-                url: 'cart_update.php',
-                data: {
-                    id_item: id_item,
-                    qty: qty
-                },
-                dataType: 'json',
-                success: function(response) {
-                    if (!response.error) {
-                        getCart();
-                        getTotal();
+            // Quantity Add
+            $(document).on('click', '.add', function(e) {
+                e.preventDefault();
+                var id_item = $(this).data('id-item');
+                var qty = $('#qty_' + id_item).val();
+                qty++;
+                $('#qty_' + id_item).val(qty);
+                $.ajax({
+                    type: 'POST',
+                    url: 'cart_update.php',
+                    data: {
+                        id_item: id_item,
+                        qty: qty
+                    },
+                    dataType: 'json',
+                    success: function(response) {
+                        if (!response.error) {
+                            getCart();
+                            getTotal();
+                        }
                     }
-                }
+                });
             });
-        });
-
-        // Quantity Add
-        $(document).on('click', '.add', function(e) {
-            e.preventDefault();
-            var id_item = $(this).data('id-item');
-            var qty = $('#qty_' + id_item).val();
-            qty++;
-            $('#qty_' + id_item).val(qty);
-            $.ajax({
-                type: 'POST',
-                url: 'cart_update.php',
-                data: {
-                    id_item: id_item,
-                    qty: qty
-                },
-                dataType: 'json',
-                success: function(response) {
-                    if (!response.error) {
-                        getCart();
-                        getTotal();
-                    }
-                }
-            });
-        });
+        // }););
     </script>
 </body>
 

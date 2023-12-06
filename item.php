@@ -1,18 +1,18 @@
-<?php include 'includes/session.php'; ?>
+<?php @include 'includes/session.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <title>Hardware Store</title>
-    <?php include 'includes/header.php'; ?>
+    <?php @include 'includes/header.php'; ?>
     <style>
     </style>
 </head>
 
 <body class="">
     <!-- Header - Navigation Bar -->
-    <?php include "includes/navbar_dark.php"; ?>
+    <?php @include "includes/navbar_dark.php"; ?>
 
 
     <!-- Container -->
@@ -195,8 +195,8 @@
     </div>
 
 
-    <?php include 'includes/footer.php'; ?>
-    <?php include 'includes/scripts.php'; ?>
+    <?php @include 'includes/footer.php'; ?>
+    <?php @include 'includes/scripts.php'; ?>
     <script>
         $(function() {
             $('#add').click(function(e) {
