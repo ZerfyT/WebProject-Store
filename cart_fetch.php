@@ -7,7 +7,7 @@
 	if(isset($_SESSION['user'])){
 		try{
 			$stmt = $conn->prepare("SELECT * FROM `item` INNER JOIN `cart` ON `cart`.`item_id`=`item`.`item_id` WHERE  `cart`.`user_id`= :id");
-			$stmt->execute(['id'=>$user['user_id']]);
+			$stmt->execute(['id'=>$_SESSION['user']]);
 			$total = 0;
 			foreach($stmt as $row){
 				$output['count']++;

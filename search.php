@@ -228,7 +228,7 @@
                     }
 
                     // $sql = "SELECT * FROM `item` WHERE `title` LIKE :keyword";
-                    $stmt = $conn->prepare("SELECT * FROM `item` WHERE `title` LIKE :keyword");
+                    $stmt = $conn->prepare("SELECT * FROM `item` WHERE `title` LIKE :keyword AND `avail_stock` > 0");
                     $stmt->execute(['keyword' => "%$search_key%"]);
 
                     if ($stmt->rowCount() < 1) {

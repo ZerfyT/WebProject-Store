@@ -65,13 +65,6 @@
 
             <!-- Single item -->
             <div class="carousel-item">
-                <!-- <div class="mask" style="
-                background: linear-gradient(
-                  45deg,
-                  rgba(29, 236, 197, 0.7),
-                  rgba(91, 14, 214, 0.7) 100%
-                );
-              "> -->
                 <div class="mask">
                     <div class="d-flex justify-content-center align-items-center h-100">
                         <div class="text-white text-center">
@@ -108,7 +101,7 @@
                 <div class="card">
                     <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
                         data-mdb-ripple-color="light">
-                        <img src="images/slide_6.jpg" class="w-100" />
+                        <img src="images/safty_1.jpg" class="w-100" />
                         <a href="#">
                             <div class="mask">
                                 <div class="d-flex justify-content-start align-items-end h-100">
@@ -122,12 +115,12 @@
                     </div>
                     <div class="card-body">
                         <a href="#" class="text-reset">
-                            <h5 class="card-title mb-3">Product name</h5>
+                            <h5 class="card-title mb-3">Full Body Safety Harness With Lanyards</h5>
                         </a>
                         <a href="" class="text-reset">
-                            <p>Category</p>
+                            <p>Safty</p>
                         </a>
-                        <h6 class="mb-3">LKR 1700</h6>
+                        <h6 class="mb-3">LKR 6500</h6>
                     </div>
                 </div>
             </div>
@@ -136,11 +129,11 @@
                 <div class="card">
                     <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
                         data-mdb-ripple-color="light">
-                        <img src="images/slide_5.jpg" class="w-100" />
+                        <img src="images/safty_2.png" class="w-100" />
                         <a href="#!">
                             <div class="mask">
                                 <div class="d-flex justify-content-start align-items-end h-100">
-                                    <h5><span class="badge bg-success ms-2">Eco</span></h5>
+                                    <h5><span class="badge bg-success ms-2"></span></h5>
                                 </div>
                             </div>
                             <div class="hover-overlay">
@@ -150,12 +143,12 @@
                     </div>
                     <div class="card-body">
                         <a href="" class="text-reset">
-                            <h5 class="card-title mb-3">Product name</h5>
+                            <h5 class="card-title mb-3">Bosch GKS 235 Turbo Speedline</h5>
                         </a>
                         <a href="" class="text-reset">
-                            <p>Category</p>
+                            <p>Tools</p>
                         </a>
-                        <h6 class="mb-3">LKR 1100</h6>
+                        <h6 class="mb-3">LKR 12000</h6>
                     </div>
                 </div>
             </div>
@@ -163,7 +156,7 @@
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card">
                     <div class="bg-image hover-zoom ripple" data-mdb-ripple-color="light">
-                        <img src="images/slide_4.jpg" class="w-100" />
+                        <img src="images/safty_3.webp" class="w-100" />
                         <a href="#!">
                             <div class="mask">
                                 <div class="d-flex justify-content-start align-items-end h-100">
@@ -177,13 +170,13 @@
                     </div>
                     <div class="card-body">
                         <a href="" class="text-reset">
-                            <h5 class="card-title mb-3">Product name</h5>
+                            <h5 class="card-title mb-3">MEN – Cordless Drill and Screwdriver</h5>
                         </a>
                         <a href="" class="text-reset">
-                            <p>Category</p>
+                            <p>Tools</p>
                         </a>
                         <h6 class="mb-3">
-                            <s>LKR 6500</s><strong class="ms-2 text-danger">LKR 4500</strong>
+                            <s>LKR 16000</s><strong class="ms-2 text-danger">LKR 14000</strong>
                         </h6>
                     </div>
                 </div>
@@ -195,12 +188,12 @@
             <div class="col-lg-4 col-md-12 mb-4">
                 <div class="card">
                     <div class="bg-image hover-zoom ripple" data-mdb-ripple-color="light">
-                        <img src="images/slide_2.jpg" class="w-100" />
+                        <img src="images/safty_4.png" class="w-100" />
                         <a href="#!">
                             <div class="mask">
                                 <div class="d-flex justify-content-start align-items-end h-100">
                                     <h5>
-                                        <span class="badge bg-success ms-2">Eco</span><span
+                                        <span class="badge bg-success ms-2"></span><span
                                             class="badge bg-danger ms-2">-10%</span>
                                     </h5>
                                 </div>
@@ -212,13 +205,13 @@
                     </div>
                     <div class="card-body">
                         <a href="" class="text-reset">
-                            <h5 class="card-title mb-3">Product name</h5>
+                            <h5 class="card-title mb-3">Bosch Demolition Hammer GSH 27 VC</h5>
                         </a>
                         <a href="" class="text-reset">
-                            <p>Category</p>
+                            <p>Tools</p>
                         </a>
                         <h6 class="mb-3">
-                            <s>LKR 3200</s><strong class="ms-2 text-danger">LKR 1300</strong>
+                            <s>LKR 20000</s><strong class="ms-2 text-danger">LKR 18000</strong>
                         </h6>
                     </div>
                 </div>
@@ -228,7 +221,7 @@
                 <div class="card">
                     <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
                         data-mdb-ripple-color="light">
-                        <img src="images/slide_3.jpg" class="w-100" />
+                        <img src="images/safty_5.webp" class="w-100" />
                         <a href="#!">
                             <div class="mask">
                                 <div class="d-flex justify-content-start align-items-end h-100"></div>
@@ -240,12 +233,12 @@
                     </div>
                     <div class="card-body">
                         <a href="" class="text-reset">
-                            <h5 class="card-title mb-3">Product name</h5>
+                            <h5 class="card-title mb-3">Coated Safety Work Gloves</h5>
                         </a>
                         <a href="" class="text-reset">
-                            <p>Category</p>
+                            <p>Safty</p>
                         </a>
-                        <h6 class="mb-3">LKR 5620</h6>
+                        <h6 class="mb-3">LKR 5220</h6>
                     </div>
                 </div>
             </div>
@@ -253,13 +246,13 @@
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card">
                     <div class="bg-image hover-zoom ripple" data-mdb-ripple-color="light">
-                        <img src="images/slide_6.jpg" class="w-100" />
+                        <img src="images/safty_6.webp" class="w-100" />
                         <a href="#!">
                             <div class="mask">
                                 <div class="d-flex justify-content-start align-items-end h-100">
                                     <h5>
                                         <span class="badge bg-primary ms-2">New</span><span
-                                            class="badge bg-success ms-2">Eco</span><span
+                                            class="badge bg-success ms-2"></span><span
                                             class="badge bg-danger ms-2">-10%</span>
                                     </h5>
                                 </div>
@@ -271,13 +264,13 @@
                     </div>
                     <div class="card-body">
                         <a href="" class="text-reset">
-                            <h5 class="card-title mb-3">Product name</h5>
+                            <h5 class="card-title mb-3">Multipurpose Ladder 2 Step</h5>
                         </a>
                         <a href="" class="text-reset">
-                            <p>Category</p>
+                            <p>Tools</p>
                         </a>
                         <h6 class="mb-3">
-                            <s>LKR 4700</s><strong class="ms-2 text-danger">LKR 2600</strong>
+                            <s>LKR 3200</s><strong class="ms-2 text-danger">LKR 2600</strong>
                         </h6>
                     </div>
                 </div>
@@ -298,70 +291,35 @@
                 <img src="images/cat_1.png" class="card-img-top hover-shadow" alt="" height="150" />
                 <div class="card-body">
                     <h5 class="card-title">Tools</h5>
-                    <!-- <p class="card-text">
-                    This is a wider card with supporting text below as a natural lead-in to
-                    additional content. This content is a little bit longer.
-                </p> -->
                 </div>
-                <!-- <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
-                </div> -->
             </div>
 
             <div class="card">
                 <img src="images/cat_2.jpg" class="card-img-top hover-shadow" alt="" height="150" />
                 <div class="card-body">
                     <h5 class="card-title">Building Profiles</h5>
-                    <!-- <p class="card-text">
-                    This is a wider card with supporting text below as a natural lead-in to
-                    additional content. This content is a little bit longer.
-                </p> -->
                 </div>
-                <!-- <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
-                </div> -->
             </div>
 
             <div class="card">
                 <img src="images/cat_3.jpg" class="card-img-top hover-shadow" alt="" height="150" />
                 <div class="card-body">
                     <h5 class="card-title">Installation Systems</h5>
-                    <!-- <p class="card-text">
-                    This is a wider card with supporting text below as a natural lead-in to
-                    additional content. This content is a little bit longer.
-                </p> -->
                 </div>
-                <!-- <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
-                </div> -->
             </div>
 
             <div class="card">
                 <img src="images/cat_4.png" class="card-img-top hover-shadow" alt="" height="150" />
                 <div class="card-body">
                     <h5 class="card-title">Electronic Devices</h5>
-                    <!-- <p class="card-text">
-                    This is a wider card with supporting text below as a natural lead-in to
-                    additional content. This content is a little bit longer.
-                </p> -->
                 </div>
-                <!-- <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
-                </div> -->
             </div>
 
             <div class="card">
                 <img src="images/cat_5.png" class="card-img-top hover-shadow" alt="" height="150" />
                 <div class="card-body">
                     <h5 class="card-title">Clean & Wash</h5>
-                    <!-- <p class="card-text">
-                    This is a wider card with supporting text below as a natural lead-in to
-                    additional content. This content is a little bit longer.
-                </p> -->
                 </div>
-                <!-- <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
-                </div> -->
             </div>
 
             <div class="card">

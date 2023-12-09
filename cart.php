@@ -114,10 +114,12 @@ if (!isset($_SESSION['user'])) {
                                 <span><strong id="net-total"></strong></span>
                             </li>
                         </ul>
-
-                        <button type="button" class="btn btn-primary btn-lg btn-block">
-                            Go to checkout
-                        </button>
+                        <form name="cart-checkout" action="cart_checkout.php" method="post">
+                            <!-- <input type="hidden" name="user_id" value="1"> -->
+                            <button id="cart-checkout" name="cart-checkout" type="submit" class="btn btn-primary btn-lg btn-block">
+                                Go to checkout
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -133,6 +135,12 @@ if (!isset($_SESSION['user'])) {
     <?php include 'includes/scripts.php'; ?>
 
     <script>
+        $(document).ready(function() {
+            ('#cart-checkout').click(function() {
+                
+            });
+        });
+
         // $($(document).ready(function () {
             getCart();
             // const btDelete = document.querySelector('.bt-delete');

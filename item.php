@@ -1,18 +1,18 @@
-<?php @include 'includes/session.php'; ?>
+<?php include 'includes/session.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <title>Hardware Store</title>
-    <?php @include 'includes/header.php'; ?>
+    <?php include 'includes/header.php'; ?>
     <style>
     </style>
 </head>
 
 <body class="">
     <!-- Header - Navigation Bar -->
-    <?php @include "includes/navbar_dark.php"; ?>
+    <?php include "includes/navbar_dark.php"; ?>
 
 
     <!-- Container -->
@@ -88,7 +88,7 @@
 
         <!-- Related items section-->
         <!-- <section class="py-5 bg-light"> -->
-        <div class="container px-4 px-lg-5 mt-5 bg-light">
+        <div class="container px-4 px-lg-5 mt-5 bg-light d-none">
             <h2 class="fw-bolder mb-4">Related products</h2>
             <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                 <div class="col mb-5">
@@ -195,8 +195,8 @@
     </div>
 
 
-    <?php @include 'includes/footer.php'; ?>
-    <?php @include 'includes/scripts.php'; ?>
+    <?php include 'includes/footer.php'; ?>
+    <?php include 'includes/scripts.php'; ?>
     <script>
         $(function() {
             $('#add').click(function(e) {
